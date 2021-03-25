@@ -11,11 +11,12 @@
             <img class="logo" src="https://64.media.tumblr.com/0f1dd678826d17352bf398e36963360d/3ca481d6064ca986-e1/s1280x1920/5cfc66e35d574ebc71bf68ce30950e2939042f53.png">
             <nav class="navbar">
                 <ul>  
+                    
+                    {% if current_user.is_anonymous %}
+
+                    {% else %}
                     <li><a  href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('popular') }}">Popular</a></li>
-                    {% if current_user.is_anonymous %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    {% else %}
                     <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
@@ -38,8 +39,9 @@
         <style>
 
             .navbar {
-                display: inline-block;
-
+                display: inline;
+                margin-left: 59%;
+                padding-top: 0.5%;
             }
 
             li {
@@ -54,7 +56,7 @@
             }
 
             .logo {
-                height: 50px;
+                height: 60px;
                 margin-left: 10px;
             }
 
@@ -63,6 +65,7 @@
                 height: 125vh;
                 font-family: sans-serif;
                 margin-top: 100px;
+                
             }
 
             .body-content {
@@ -76,7 +79,7 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                height: 50px;
+                height: 60px;
                 display: flex;
                 box-shadow: 0 0 10px 0 #0f0f0f;
                 text-align: right !important;
@@ -112,21 +115,19 @@
             }
 
             form {
-                display: flex;
+                display: block;
                 flex-direction: column;
-                align-items: center;
-                padding: 10px 10px;
-                color: white;
-                /* background: rgba(0, 0, 0, 0.8); */
+                align-content: center;
+                padding: 10px;
+                text-align: center;
+                /* max-width: 25%; */
+                background-color: #281E2F;
                 border-radius: 25px;
-                border-bottom-style: solid;
-                border-color: #50e54b;
-                /* box-shadow: 0 0.4px 0.4px rgba(31, 30, 30, 0.109),
-                    0 1px 1px rgba(128, 128, 128, 0.155),
-                    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-                    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-                    0 12px 12px rgba(128, 128, 128, 0.35); */
+                margin-left: 35%;
+                margin-right: 35%;
+                /* box-shadow: 0 5px 10px 2px #161616; */
             }
+
 
             p {
                 color: whitesmoke;

@@ -21,6 +21,8 @@ def before_request():
         db.session.commit()
 
 @app.route('/')
+def default():
+    return redirect(url_for('login'))
 
 @app.route('/home')
 @login_required
@@ -48,7 +50,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
