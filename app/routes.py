@@ -7,6 +7,12 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm
 from app.models import User
 from datetime import datetime
+import json
+import urllib.request
+
+api_key = "c927d9d9994588e8e9c580276b5305b5"
+base_url = "https://api.themoviedb.org/3/discover/movie?api_key=" + api_key
+
 
 @app.before_request
 def before_request():
@@ -118,3 +124,9 @@ def unfollow(username):
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
+ 
+@app.route('/popular')
+def popular():
+    conn = urllib.request.urlopen(base_url)
+    json_data = json.loads(conn.read())
+    return render_template('popular.html', results=json_data["results"])

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="movie-list-container">
+            {% for movie in results %}
+            <div class="movie-card">
+                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
+                <h2> {{movie.title}}</h2>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock %}

@@ -1,4 +1,4 @@
-.hero.is-primary{
+.body-content{
     background-color: #35293E !important;
   }
 
@@ -6,16 +6,16 @@
   background-color: #281E2F !important;
 }
 
-.navbar-item{
+/* .navbar{
   color: #746C8A;
-}
+} */
 
-.navbar-item:hover{
+/* .navbar-item:hover{
   text-decoration: none;
   background-color: #281E2F !important;
-}
+} */
 
-.button1 {
+/* .button1 {
   background-color: #1877F2;
   color: white;
   border: none;
@@ -28,10 +28,10 @@
   width: 70%;
   border-radius: 8px;
   
-}
+} */
 
-.button2 {
-  background-color: #4CAF50; /* Green */
+/* .button2 {
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -42,4 +42,4 @@
   margin: 5px;
   width: 70%;
   border-radius: 8px;
-}
+} */
