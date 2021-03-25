@@ -1,21 +1,27 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>CineMate</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+        <link rel="stylesheet" type="text/css" href="static/styles/styles.css">
     </head>
     <body>
-        <div class="navbar">
+        <header>
             CineMate
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('popular') }}">Popular</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
-            {% else %}
-            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-            {% endif %}
-        </div>
-        <hr>
+            <nav class="navbar">
+                <ul>  
+                    <li><a  href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('popular') }}">Popular</a></li>
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
+                </ul>  
+            </nav>
+        </header>
         <div class="body-content">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -29,4 +35,49 @@
             {% block content %}{% endblock %}
         </div>
     </body>
+        <style>
+            .navbar {
+                background-color: #281E2F !important;
+                color: whitesmoke;
+            }
+
+            .nav-item {
+                color: whitesmoke;
+            }
+
+            body {
+                background-color: #35293E !important;
+            }
+
+            .body-content {
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+
+            .movie-card {
+                width: 300px;
+                height: auto;
+                padding: 12px;
+                align-self: center;
+                border-radius: 2px;
+                box-shadow: 4px grey;
+                margin: 12px;
+            }
+
+            .movie-list-container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                color: whitesmoke;
+                text-align: center;
+            }
+
+            img {
+                max-width: 100%;
+                border-radius: 25px;
+            }
+            
+        </style>
+
 </html>
