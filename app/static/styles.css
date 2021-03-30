@@ -206,8 +206,8 @@ h2 {
 }
 
 /* rating stars css */
-
-/* *{
+/* 
+*{
   margin: 0;
   padding: 0;
 }
@@ -246,3 +246,7 @@ h2 {
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
 } */
+
+ul {
+  color: white;
+}
