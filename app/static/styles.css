@@ -175,6 +175,7 @@ input[type="text" i] {
 
 .edit-form {
   display: inline-block;
+  margin-top: 0;
 }
 
 input[type="password" i] {
