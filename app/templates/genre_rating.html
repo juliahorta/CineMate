@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+        <div class="grate-wrap">
+            <form class="grate-form" action="" method="post">
+                <h2> Please rate the following genres...</h1>
+                    <div class="genre-options">
+                        {{ form.hidden_tag() }}
+                        <p class="genre-radio">{{ form.action.label }} {{ form.action() }}</p>
+                        <p class="genre-radio">{{ form.adventure.label }} {{ form.adventure() }}</p>
+                        <p class="genre-radio">{{ form.animation.label }} {{ form.animation() }}</p>
+                        <p class="genre-radio">{{ form.comedy.label }} {{ form.comedy() }}</p>
+                        <p class="genre-radio">{{ form.crime.label }} {{ form.crime() }}</p>
+                        <p class="genre-radio">{{ form.documentary.label }} {{ form.documentary() }}</p>
+                        <p class="genre-radio">{{ form.drama.label }} {{ form.drama() }}</p>
+                        <p class="genre-radio">{{ form.family.label }} {{ form.family() }}</p>
+                        <p class="genre-radio">{{ form.fantasy.label }} {{ form.fantasy() }}</p>
+                        <p class="genre-radio">{{ form.history.label }} {{ form.history() }}</p>
+                        <p class="genre-radio">{{ form.horror.label }} {{ form.horror() }}</p>
+                        <p class="genre-radio">{{ form.music.label }} {{ form.music() }}</p>
+                        <p class="genre-radio">{{ form.mystery.label }} {{ form.mystery() }}</p>
+                        <p class="genre-radio">{{ form.romance.label }} {{ form.romance() }}</p>
+                        <p class="genre-radio">{{ form.scifi.label }} {{ form.scifi() }}</p>
+                        <p class="genre-radio">{{ form.thriller.label }} {{ form.thriller() }}</p>
+                        <p class="genre-radio">{{ form.war.label }} {{ form.war() }}</p>
+                        <p class="genre-radio">{{ form.western.label }} {{ form.western() }}</p>
+                        <p class="genre-radio">{{ form.submit() }}</p>
+                    </div>
+                </form>
+            </div>
+                <!-- <div class="rate">
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star5" title="text">1 star</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star4" title="text">2 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star2" title="text">4 stars</label>
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star1" title="text">5 stars</label>
+                </div>
+                <input type="submit"> -->
+        
+  
+    
+{% endblock %}
