@@ -1,0 +1,124 @@
+.body-content{
+    background-color: #35293E !important;
+  }
+
+.navbar{
+  background-color: #281E2F !important;
+}
+
+/.navbar {
+  display: inline;
+  margin-left: 59%;
+  padding-top: 0.5%;
+}
+
+li {
+  display: inline;
+  margin: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+}
+
+.logo {
+  height: 60px;
+  margin-left: 10px;
+}
+
+body {
+  background-color: #35293E !important;
+  height: 125vh;
+  font-family: sans-serif;
+  margin-top: 100px;
+  
+}
+
+.body-content {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+header {
+  background-color: #281E2F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  box-shadow: 0 0 10px 0 #0f0f0f;
+  text-align: right !important;
+}
+
+.movie-card {
+  width: 300px;
+  height: auto;
+  padding: 12px;
+  align-self: center;
+  border-radius: 2px;
+  box-shadow: 4px grey;
+  margin: 12px;
+}
+
+.movie-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: whitesmoke;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 25px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+form {
+  display: block;
+  flex-direction: column;
+  align-content: center;
+  padding: 10px;
+  text-align: center;
+  /* max-width: 25%; */
+  background-color: #281E2F;
+  border-radius: 25px;
+  margin-left: 35%;
+  margin-right: 35%;
+  /* box-shadow: 0 5px 10px 2px #161616; */
+}
+
+
+p {
+  color: whitesmoke;
+  text-align: center;
+}
+
+
+input[type="submit" i] {
+  color: white !important;
+  background-color: teal !important;
+  border-style: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px;
+  width: 70%;
+  border-radius: 8px;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  
+}
+
+.register-link {
+  text-decoration: underline;
+}
