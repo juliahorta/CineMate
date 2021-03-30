@@ -11,7 +11,7 @@ import json
 import urllib.request
 
 api_key = "c927d9d9994588e8e9c580276b5305b5"
-base_url = "https://api.themoviedb.org/3/discover/movie?api_key=" + api_key
+popular_url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_key + "&language=en-US"
 
 
 @app.before_request
@@ -129,6 +129,6 @@ def unfollow(username):
  
 @app.route('/popular')
 def popular():
-    conn = urllib.request.urlopen(base_url)
+    conn = urllib.request.urlopen(popular_url)
     json_data = json.loads(conn.read())
     return render_template('popular.html', results=json_data["results"])

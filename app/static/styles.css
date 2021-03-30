@@ -2,11 +2,9 @@
     background-color: #35293E !important;
   }
 
-.navbar{
-  background-color: #281E2F !important;
-}
 
-/.navbar {
+.navbar {
+  background-color: #281E2F !important;
   display: inline;
   margin-left: 59%;
   padding-top: 0.5%;
@@ -25,7 +23,7 @@ a {
 
 .logo {
   height: 60px;
-  margin-left: 10px;
+  margin-left: 10%;
 }
 
 body {
@@ -81,21 +79,33 @@ h1 {
   color: white;
   text-align: center;
 }
+.form-wrap {
+  text-align: center;
+}
 
 form {
-  display: block;
+  display: inline-block;
   flex-direction: column;
   align-content: center;
   padding: 10px;
+  width: 50%;
   text-align: center;
-  /* max-width: 25%; */
+  max-width: 60%;
   background-color: #281E2F;
   border-radius: 25px;
-  margin-left: 35%;
-  margin-right: 35%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 8%;
   /* box-shadow: 0 5px 10px 2px #161616; */
 }
 
+.form{
+  text-align: center;
+}
+
+label {
+  font-size: auto;
+}
 
 p {
   color: whitesmoke;
@@ -110,15 +120,69 @@ input[type="submit" i] {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 90%;
   margin: 5px;
-  width: 70%;
+  width: 40%;
   border-radius: 8px;
   padding-bottom: 2%;
   padding-top: 2%;
   
 }
 
-.register-link {
+.reg-button {
+  /* color: white !important;
+  background-color: teal !important; */
+  /* border-style: none; */
+  /* text-align: center;
+  text-decoration: none; */
+  display: inline-block;
+  text-align: center;
+  font-size: 90%;
+  margin: 5px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 3px 5px;
+  display: inline;
+}
+
+.reg-wrap {
+  text-align: center;
+}
+
+.submit-wrap {
+  width: 55%;
+  text-align: center;
+  margin: auto ;
+}
+
+.register-link, .prof-edit {
   text-decoration: underline;
+}
+
+input[type="text" i] {
+  width: 55%;
+  padding: 7px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: auto;
+}
+
+.edit-profile {
+  text-align: center;
+}
+
+.edit-form {
+  display: inline-block;
+}
+
+input[type="password" i] {
+  width: 55%;
+  padding: 7px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: auto;
 }

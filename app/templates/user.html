@@ -10,7 +10,7 @@
             <p>{{ user.followed.count() }} Following {{ user.followers.count() }} Followers</p>
             {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
             {% if user == current_user %}
-            <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+            <p class="prof-edit"><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
             {% elif not current_user.is_following(user) %}
             <p>
                 <form action="{{ url_for('follow', username=user.username) }}" method="post">
@@ -29,6 +29,5 @@
         </td>
     </tr>
 </table>
-    <hr>
 
 {% endblock %}
