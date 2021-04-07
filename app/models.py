@@ -72,8 +72,10 @@ def load_user(id):
 
 class Diary(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date_watched = db.Column(db.DateTime)
+    # fix line below date needs to be stored as string
+    date_watched = db.Column(db.DateTime) 
     movie_name = db.Column(db.String(200))
+    # fix line below date needs to be stored as string
     release_date = db.Column(db.DateTime)
     user_rating = db.Column(db.Integer())
     rewatch = db.Column(db.Boolean(create_constraint=False))
