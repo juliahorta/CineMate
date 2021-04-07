@@ -201,15 +201,56 @@ input[type="password" i] {
 .log-poster {
   width: 200px;
   height: auto;
-  float: left; margin: 0px 15px 15px 0px;
+  float: left; margin: 0px 35px 15px 0px;
 }
 
-.rest-log-info, .log-name, .log-date {
+.rest-log-info, .log-date {
   text-align: left;
+  padding-left: 10%;
+}
+
+input[type="date" i] {
+  font-family: sans-serif;
+  padding-left: 5px;
+  width: 170px;
+
 }
 
 .log-name {
-  padding-left: 3%;
+  padding-left: 5% !important;
+  text-align: left;
+}
+
+.log-review, .review-cont {
+  text-align: left !important;
+}
+
+textarea {
+  font-family: sans-serif;
+  resize: none;
+  width: 275px;
+  height: 50px;
+  text-align: left !important;
+  outline: none;
+  padding-left: 5px;  
+  border-radius: 4px;
+
+}
+
+.repeat-log {
+  text-align: left;
+}
+
+.log-button {
+  text-align: center;
+}
+
+.log-stars {
+  text-align: left;
+}
+
+input[type="submit" i] {
+  width: 15%;
 }
 
 
