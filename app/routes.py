@@ -14,7 +14,7 @@ import urllib.request
 api_key = "c927d9d9994588e8e9c580276b5305b5"
 popular_url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_key + "&language=en-US"
 search_url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" 
-
+info_url = "https://api.themoviedb.org/3/movie/"
 
 @app.before_request
 def before_request():
@@ -159,3 +159,20 @@ def m_search():
         json_data = json.loads(conn.read())
         return render_template('search_results.html', results=json_data["results"], term=form.movieName.data)
     return render_template('movie_search.html', form=form)
+
+@app.route('/log-movie', methods=['GET', 'POST'])
+def log_movie():
+    movieid = request.args['movieid']
+    mname = request.args['mname']
+    myear = request.args['myear']
+    log_url = info_url + movieid + "?api_key=" + api_key
+    conn = urllib.request.urlopen(log_url)
+    json_data = json.loads(conn.read())
+    form = LogMovie()
+    if form.validate_on_submit():
+        log_data = Diary(date_watched=form.dateWatched.data, movie_name=mname, release_date=myear, user_rating=form.movieRating.data, 
+            rewatch=form.movieRewatch.data, review=form.movieReview.data, logger=current_user)
+        db.session.add(log_data)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('log_movie.html', form=form, result=json_data)

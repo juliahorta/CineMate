@@ -165,7 +165,7 @@ input[type="submit" i] {
   text-align: center;
 }
 
-.register-link, .prof-edit {
+.register-link, .prof-edit, .log-link {
   text-decoration: underline;
 }
 
@@ -198,8 +198,51 @@ input[type="password" i] {
   font-size: auto;
 }
 
+.log-poster {
+  width: 200px;
+  height: auto;
+  float: left; margin: 0px 15px 15px 0px;
+}
+
+.rest-log-info, .log-name, .log-date {
+  text-align: left;
+}
+
+.log-name {
+  padding-left: 3%;
+}
+
+
+/* .log-poster-div {
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rest-log-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */
+
+.log-form {
+  margin-top: 1% !important;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: fit-content;
+}
+.content-log {
+  text-align: center;
+}
+
 h2 {
   color: white;
+  text-align: center;
 }
 
 .genre-radio {
