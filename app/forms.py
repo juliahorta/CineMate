@@ -76,4 +76,8 @@ class LogMovie(FlaskForm):
     movieReview = TextAreaField('Review', validators=[Length(min=0, max=140)])
     movieRating = RadioField('Rating', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')], validators=[DataRequired()])
     movieRewatch = BooleanField('Rewatch?')
-    submit = SubmitField('Submit')
+    submit = SubmitField('Save')
+
+class MovieSearch(FlaskForm):
+    movieName = StringField('Name of film', validators=[DataRequired()])
+    submit = SubmitField('Search')

@@ -4,14 +4,16 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, RateGenres
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, RateGenres, LogMovie, MovieSearch
 from app.models import User, Diary, GenreRating
 from datetime import datetime
 import json
 import urllib.request
 
+
 api_key = "c927d9d9994588e8e9c580276b5305b5"
 popular_url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_key + "&language=en-US"
+search_url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" 
 
 
 @app.before_request
@@ -146,3 +148,14 @@ def g_rate():
         db.session.commit()
         return redirect(url_for('user', username=current_user.username))
     return render_template('genre_rating.html', form=form)
+
+@app.route('/search-movie', methods=['GET', 'POST'])
+def m_search():
+    form = MovieSearch()
+    if form.validate_on_submit():
+        user_search = urllib.parse.quote(form.movieName.data)
+        complete_url = search_url + user_search + "&page=1"
+        conn = urllib.request.urlopen(complete_url)
+        json_data = json.loads(conn.read())
+        return render_template('search_results.html', results=json_data["results"], term=form.movieName.data)
+    return render_template('movie_search.html', form=form)
