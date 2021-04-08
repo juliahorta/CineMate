@@ -12,13 +12,15 @@
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
-            <p>
-                {{ form.about_me.label }}<br>
-                {{ form.about_me(cols=37, rows=4) }}<br>
-                {% for error in form.about_me.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
+            <div class="about-box-cont">
+                <p class="about-me-box">
+                    {{ form.about_me.label }}<br>
+                    {{ form.about_me(cols=37, rows=4) }}<br>
+                    {% for error in form.about_me.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+            </div>
             <p>{{ form.submit() }}</p>
         </form>
     </div>
