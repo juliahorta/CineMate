@@ -163,9 +163,36 @@ form {
 
 }
 
+.poster-name:hover {
+  text-decoration: underline;
+}
+
+.nav-text {
+  color: #DFE2E8;
+}
+
+.nav-text:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.user-post {
+  padding-right: 3%;
+}
+
 .body-post-cont {
   text-align: center;
   padding-top: 1%;
+  padding-bottom: 3%;
+}
+
+.pages-link:hover {
+  text-decoration: underline;
+}
+
+.user-content {
+  text-align: left;
+  padding-bottom: 3%;
 }
 
 label {
