@@ -175,3 +175,9 @@ def log_movie():
         db.session.commit()
         return redirect(url_for('home'), )
     return render_template('log_movie.html', form=form, result=json_data)
+
+@app.route('/explore')
+@login_required
+def explore():
+    users = User.query.order_by(User.username.desc()).all()
+    return render_template('explore_page.html', title='Explore', users=users)

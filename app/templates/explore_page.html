@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> <h1>{{ current_user.username }}, meet CineMate's other users...</h1></h1>
+        {% for u in users %}
+        <img src="{{ u.avatar(128) }}">
+        <li><a href="{{ url_for('follow', username=u.username) }}"> {{ u.username }}</a></li>
+
+        {% endfor %}
+{% endblock %}
