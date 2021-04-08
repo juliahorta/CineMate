@@ -80,3 +80,4 @@ class LogMovie(FlaskForm):
 class MovieSearch(FlaskForm):
     movieName = StringField('Name of film', validators=[DataRequired()], render_kw={"placeholder": "Name of film"})
     submit = SubmitField('Search')
+

@@ -24,10 +24,10 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     user_genre_ratings = db.relationship('GenreRating', backref='g_rater', lazy='dynamic')
-    # u_g_ratings = db.relationship(
-    #     'User', secondary=genre_ratings,
-    #     primaryjoin=(genre_ratings.c.user_id == id),
-    #     backref=db.backref('g_ratings', lazy='dynamic'), lazy='dynamic')
+    u_g_ratings = db.relationship(
+        'User', secondary=genre_ratings,
+        primaryjoin=(genre_ratings.c.user_id == id),
+        backref=db.backref('g_ratings', lazy='dynamic'), lazy='dynamic')
     
 
     def __repr__(self):
@@ -63,8 +63,6 @@ class User(UserMixin, db.Model):
         own = Diary.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Diary.date_watched.desc())
     
-    # def rate(self, initial_g_ratings):
-    #     self.u_g_ratings.append(initial_g_ratings)
 
 @login.user_loader
 def load_user(id):
@@ -106,3 +104,4 @@ class GenreRating(db.Model):
     war = db.Column(db.Integer)
     western = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
