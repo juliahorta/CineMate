@@ -2,11 +2,10 @@
 
 {% block content %}
     <h1>Search for Movie</h1>
-    <div>
-        <form action="" method="post">
+    <div class="search-bar">
+        <form class="search-form" action="" method="post">
             {{ form.hidden_tag() }}
             <p>
-                {{ form.movieName.label }}<br>
                 {{ form.movieName() }}<br>
             </p>
             <p>{{ form.submit() }}</p>
