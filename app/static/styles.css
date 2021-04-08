@@ -105,8 +105,49 @@ form {
   /* box-shadow: 0 5px 10px 2px #161616; */
 }
 
-.form{
+.user-post {
+  display: inline-block;
+  flex-direction: row;
+  align-content: center;
+  width: 60%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  justify-content: space-around;
+}
+
+.post-poster {
+  width: 130px;
+  height: auto;
+  float: left; margin: 0px 35px 15px 0px;
+}
+
+.p-m-name, .p-re-text, .p-u-rate, .p-rev {
+  text-align: left !important;
+}
+
+.line {
+  max-width: 80%;
+}
+
+.p-date {
+  text-decoration-thickness: None;
+}
+
+.form {
   text-align: center;
+}
+
+.home-content {
+  background-color: #281E2F;
+  border-radius: 25px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+
+}
+
+.body-post-cont {
+  text-align: center;
+  padding-top: 1%;
 }
 
 label {

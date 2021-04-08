@@ -7,7 +7,7 @@
             {% for movie in results %}
             <div class="movie-card">
                 <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
-                <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3>
+                <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3>
             </div>
             {% endfor %}
         </div>

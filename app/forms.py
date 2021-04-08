@@ -71,7 +71,6 @@ class RateGenres(FlaskForm):
     submit = SubmitField('Done')
 
 class LogMovie(FlaskForm):
-    # will already have movie name and release date info from api
     dateWatched = DateField('Date Watched', format='%Y-%m-%d', validators=[DataRequired()])
     movieReview = TextAreaField('Review', validators=[Length(min=0, max=140)], render_kw={"placeholder": "Write a review..."})
     movieRating = RadioField('Rating', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')], validators=[DataRequired()])

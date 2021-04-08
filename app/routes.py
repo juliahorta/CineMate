@@ -29,8 +29,8 @@ def default():
 @app.route('/home')
 @login_required
 def home():
-
-    return render_template('index.html', title='Home')
+    posts = current_user.followed_entries().all()
+    return render_template('index.html', title='Home', posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -64,7 +64,6 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -83,8 +82,7 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash('Your changes have been saved.')
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for('user', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
@@ -101,11 +99,11 @@ def follow(username):
             flash('User {} not found.'.format(username))
             return redirect(url_for('index'))
         if user == current_user:
-            flash('You cannot follow yourself!')
+            # flash('You cannot follow yourself!')
             return redirect(url_for('user', username=username))
         current_user.follow(user)
         db.session.commit()
-        flash('You are following {}!'.format(username))
+        # flash('You are following {}!'.format(username))
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
@@ -165,14 +163,15 @@ def log_movie():
     movieid = request.args['movieid']
     mname = request.args['mname']
     myear = request.args['myear']
+    mposter = request.args['mposter']
     log_url = info_url + movieid + "?api_key=" + api_key
     conn = urllib.request.urlopen(log_url)
     json_data = json.loads(conn.read())
     form = LogMovie()
     if form.validate_on_submit():
-        log_data = Diary(date_watched=form.dateWatched.data, movie_name=mname, release_date=myear, user_rating=form.movieRating.data, 
+        log_data = Diary(date_watched=form.dateWatched.data, movie_name=mname, movie_id=movieid, poster_path=mposter, release_date=myear, user_rating=form.movieRating.data, 
             rewatch=form.movieRewatch.data, review=form.movieReview.data, logger=current_user)
         db.session.add(log_data)
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('home'), )
     return render_template('log_movie.html', form=form, result=json_data)
