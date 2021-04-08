@@ -53,12 +53,13 @@ header {
 
 .movie-card {
   width: 250px;
-  max-height: 400px;
+  max-height: auto;
   padding: 3%;
   align-self: center;
   border-radius: 2px;
   box-shadow: 4px grey;
   margin: 12px;
+  justify-content: space-between;
 }
 
 .movie-list-container {
@@ -117,6 +118,11 @@ form {
   border-radius: 25px;
   padding-left: 3%;
   justify-content: space-between;
+}
+
+.res-sub {
+  text-align: center;
+  font-weight: normal;
 }
 
 .post-poster {

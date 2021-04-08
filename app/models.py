@@ -24,10 +24,10 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     user_genre_ratings = db.relationship('GenreRating', backref='g_rater', lazy='dynamic')
-    u_g_ratings = db.relationship(
-        'User', secondary=genre_ratings,
-        primaryjoin=(genre_ratings.c.user_id == id),
-        backref=db.backref('g_ratings', lazy='dynamic'), lazy='dynamic')
+    # u_g_ratings = db.relationship(
+    #     'User', secondary=genre_ratings,
+    #     primaryjoin=(genre_ratings.c.user_id == id),
+    #     backref=db.backref('g_ratings', lazy='dynamic'), lazy='dynamic')
     
 
     def __repr__(self):

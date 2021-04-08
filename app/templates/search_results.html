@@ -2,13 +2,15 @@
 
 {% block content %}
     <h1> results for "{{term}}"</h1>
-    <h2> click movie name to log it</h2>
+    <h2 class="res-sub" > click movie name to log it</h2>
         <div class="movie-list-container">
             {% for movie in results %}
+            {% if movie.poster_path %}
             <div class="movie-card">
                 <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
                 <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
 {% endblock %}
