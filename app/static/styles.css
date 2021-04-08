@@ -2,11 +2,14 @@
     background-color: #35293E !important;
   }
 
+.user-link:hover {
+  text-decoration: underline;
+}
 
 .navbar {
   background-color: #281E2F !important;
   display: inline;
-  margin-left: 43%;
+  margin-left: 28%;
   padding-top: 1%;
 }
 
