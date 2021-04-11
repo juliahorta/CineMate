@@ -6,6 +6,11 @@
   text-decoration: underline;
 }
 
+.user-icon {
+  border-radius: 50% !important;
+  padding-left: 1%;
+}
+
 .xplore-cont, .user-list {
   justify-content: space-around;
   flex-direction: column;
@@ -20,7 +25,7 @@
 
 .username, .user-bio, .last-seen {
   text-align: left;
-  padding-left: 7%;
+  padding-left: 3%;
 }
 
 .user-bio {
@@ -35,11 +40,11 @@
 
 .prof-edit {
   text-align: left;
-  padding-left: 7%;
+  padding-left: 3%;
 }
 
 .following-ers {
-  float: right; margin: -51px 1px 15px 350px;
+  float: right; margin: -51px 1px 15px 500px;
   font-weight: normal;
 }
 
@@ -69,6 +74,10 @@ a {
 
 .logo {
   height: 60px;
+  margin-left: 10%;
+}
+
+.logo-link {
   margin-left: 10%;
 }
 
@@ -152,6 +161,12 @@ form {
   /* box-shadow: 0 5px 10px 2px #161616; */
 }
 
+.user-info {
+  background-color: #281E2F;
+  padding: 10px;
+  border-radius: 25px;
+}
+
 .user-post {
   display: inline-block;
   flex-direction: row;
@@ -164,6 +179,10 @@ form {
   border-radius: 25px;
   padding-left: 3%;
   justify-content: space-between;
+}
+
+.user-post-cont{
+  padding-top: 1%;
 }
 
 .res-sub {

@@ -4,10 +4,10 @@
 <div class="user-body">
 <table class="user-info">
     <tr valign="top">
-        <td class="user-icon"><img src="{{ user.avatar(128) }}"></td>
+        <td><img class="user-icon" src="{{ user.avatar(128) }}"></td>
         <td class="user-info">
             <h1 class="username">{{ user.username }}</h1>
-            <h2 class="following-ers"> <b>{{ user.entries.count()}}</b> Entries • <b>{{ user.followed.count() }}</b> Following • <b>{{ user.followers.count() }}</b> Followers</h2>
+            <h3 class="following-ers"> <b>{{ user.entries.count()}}</b> Entries • <b>{{ user.followed.count() }}</b> Following • <b>{{ user.followers.count() }}</b> Followers</h3>
             {% if user.about_me %}<p class="user-bio">{{ user.about_me }}</p>{% endif %}
             {% if user == current_user %}
             <p class="prof-edit"><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
