@@ -18,6 +18,32 @@
   align-self: center;
 }
 
+.username, .user-bio, .last-seen {
+  text-align: left;
+  padding-left: 7%;
+}
+
+.user-bio {
+  max-width: 400px;
+}
+
+.pages-link {
+  justify-content: space-between;
+  display: inline-block;
+  padding-left: 1%;
+}
+
+.prof-edit {
+  text-align: left;
+  padding-left: 7%;
+}
+
+.following-ers {
+  float: right; margin: -51px 1px 15px 350px;
+  font-weight: normal;
+}
+
+
 .user-link {
   padding-top: 5%;
 }
