@@ -9,10 +9,12 @@
             <h1 class="username">{{ user.username }}</h1>
             <h3 class="following-ers"> <b>{{ user.entries.count()}}</b> Entries • <b>{{ user.followed.count() }}</b> Following • <b>{{ user.followers.count() }}</b> Followers</h3>
             {% if user.about_me %}<p class="user-bio">{{ user.about_me }}</p>{% endif %}
+            {% if user.last_seen %}<p class="last-seen">Last seen on: {{ user.last_seen }}</p>{% endif %}
             {% if user == current_user %}
             <p class="prof-edit"><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
             {% elif not current_user.is_following(user) %}
             <p>
+
                 <form class="follow-button" action="{{ url_for('follow', username=user.username) }}" method="post">
                     {{ form.hidden_tag() }}
                     {{ form.submit(value='Follow') }}
@@ -20,13 +22,13 @@
             </p>
             {% else %}
             <p>
+
                 <form class="follow-button" action="{{ url_for('unfollow', username=user.username) }}" method="post">
                     {{ form.hidden_tag() }}
                     {{ form.submit(value='Unfollow') }}
                 </form>
             </p>
             {% endif %}
-            {% if user.last_seen %}<p class="last-seen">Last seen on: {{ user.last_seen }}</p>{% endif %}
         </td>
     </tr>
 </table>

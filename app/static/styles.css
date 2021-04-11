@@ -41,6 +41,7 @@
 .prof-edit {
   text-align: left;
   padding-left: 3%;
+  /* padding-right: 1%; */
 }
 
 .following-ers {
@@ -64,6 +65,12 @@
 li {
   display: inline;
   margin: 10px;
+}
+
+
+.follow-button {
+  text-align: right;
+  padding-left: 30%;
 }
 
 a {
@@ -279,7 +286,7 @@ input[type="submit" i] {
   display: inline-block;
   font-size: 90%;
   margin: 5px;
-  width: 40%;
+  width: 30%;
   border-radius: 8px;
   padding-bottom: 2%;
   padding-top: 2%;
@@ -400,9 +407,6 @@ textarea {
   text-align: left;
 }
 
-input[type="submit" i] {
-  width: 15%;
-}
 
 
 /* .log-poster-div {
