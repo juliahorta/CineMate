@@ -17,7 +17,6 @@
                     {% if current_user.is_anonymous %}
 
                     {% else %}
-                    <li><a class="nav-text" href="{{ url_for('home') }}">Home</a></li>
                     <li><a class="nav-text" href="{{ url_for('popular') }}">Popular Movies</a></li>
                     <li><a class="nav-text" href="{{ url_for('explore') }}">Explore Users</a></li>
                     <li><a class="nav-text" href="{{ url_for('m_search') }}">Log Movie</a></li>

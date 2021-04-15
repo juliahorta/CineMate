@@ -198,6 +198,24 @@ form {
   justify-content: space-between;
 }
 
+.result-1-recc {
+  display: inline-block;
+  flex-direction: row;
+  align-content: center;
+  width: 60%;
+  padding-top: 3%;
+  padding-bottom: 1%;
+  justify-content: space-around;
+  background-color:#281E2F;
+  border-radius: 25px;
+  padding-left: 3%;
+  justify-content: space-between;
+}
+
+.res-1-cont{
+  text-align: center;
+}
+
 .user-post-cont{
   padding-top: 1%;
 }
@@ -415,27 +433,8 @@ textarea {
 
 .log-stars {
   text-align: left;
-  color: white !important;
-  background-color: white;
+
 }
-
-
-/* .log-poster-div {
-  padding-left: 10%;
-  padding-top: 5%;
-  padding-right: 10%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.rest-log-info {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-} */
 
 .log-form {
   margin-top: 1% !important;
@@ -454,4 +453,33 @@ h2 {
 
 ul {
   color: white;
+}
+
+.se-sub {
+  font-weight: normal;
+  text-align: center;
+}
+
+.recc-link {
+  text-decoration: underline;
+}
+
+.recc-card {
+  width: 200px;
+  height: auto;
+}
+
+.recc-list-container{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}
+
+.recc-movie-card{
+  width: 250px;
+  height: auto;
+  
 }
