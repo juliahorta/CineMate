@@ -179,16 +179,16 @@ form {
 }
 
 .user-info {
-  background-color: #281E2F;
-  padding: 10px;
-  border-radius: 25px;
+  /* background-color: #281E2F; */
+  /* padding: 10px;
+  border-radius: 25px; */
 }
 
 .user-post {
   display: inline-block;
   flex-direction: row;
   align-content: center;
-  width: 60%;
+  width: 80%;
   padding-top: 3%;
   padding-bottom: 1%;
   justify-content: space-around;
@@ -248,6 +248,7 @@ form {
   width: 130px;
   height: auto;
   float: left; margin: 0px 35px 15px 0px;
+  border-radius: 10px;
 }
 
 .p-m-name, .p-re-text, .p-u-rate, .p-rev {
@@ -501,4 +502,38 @@ ul {
   width: 250px;
   height: auto;
   
+}
+
+#movieRating {
+  border: none;
+  float: left;
+}
+
+#movieRating label {
+  color: #90A0A3;
+  float: right;
+  visibility: hidden;
+}
+
+#movieRating label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  display: inline-block;
+  visibility: visible;
+}
+
+#movieRating  input {
+  display: none;
+}
+
+#movieRating  input:checked  label,
+#movieRating:not(:checked)  label:hover {
+  color: #F79426;
+}
+
+#movieRating  input:checked ~ label{
+  color: #FECE31;
+  visibility: visible;
 }

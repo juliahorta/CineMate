@@ -73,7 +73,7 @@ class RateGenres(FlaskForm):
 class LogMovie(FlaskForm):
     dateWatched = DateField('Date Watched', format='%Y-%m-%d', validators=[DataRequired()])
     movieReview = TextAreaField('Review', validators=[Length(min=0, max=140)], render_kw={"placeholder": "Write a review..."})
-    movieRating = RadioField('Rating', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')], validators=[DataRequired()])
+    movieRating = RadioField('Rating', choices=[(5),(4),(3),(2),(1)], validators=[DataRequired()])
     movieRewatch = BooleanField('Rewatch?')
     submit = SubmitField('Save')
 
