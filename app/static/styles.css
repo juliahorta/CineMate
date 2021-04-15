@@ -415,7 +415,8 @@ textarea {
 
 .log-stars {
   text-align: left;
-  color: white;
+  color: white !important;
+  background-color: white;
 }
 
 
@@ -449,4 +450,8 @@ textarea {
 h2 {
   color: white;
   text-align: center;
+}
+
+ul {
+  color: white;
 }
