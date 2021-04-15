@@ -2,12 +2,13 @@
 
 {% block content %}
     <div class="res-1-cont">
+        <h1> You chose:</h1>
         <div class="result-1-recc">
             <img class="rec-poster" src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="">
             <h2 class="rec-name"> {{ result.title }} ({{ result.release_date[:4] }}) </h2>
     
-            <a href="{{ url_for('rec_options_1', mname=result.title, myear=result.release_date[:4], movieid=result.id) }}"> Get Recommendation</a>
-            <p>button 2</p>
+            <a class="get-rec-b" href="{{ url_for('rec_options_1', mname=result.title, myear=result.release_date[:4], movieid=result.id) }}"> Get Recommendation</a>
+            <p> Another Movie</p>
         </div>
     </div>
                 
