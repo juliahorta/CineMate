@@ -206,8 +206,9 @@ def log_movie():
     json_data = json.loads(conn.read())
     form = LogMovie()
     if form.validate_on_submit():
-        log_data = Diary(date_watched=form.dateWatched.data, movie_name=mname, movie_id=movieid, poster_path=mposter, release_date=myear, user_rating=form.movieRating.data, 
-            rewatch=form.movieRewatch.data, review=form.movieReview.data, logger=current_user)
+        log_data = Diary(date_watched=form.dateWatched.data, movie_name=mname, movie_id=movieid, poster_path=mposter, 
+            release_date=myear, user_rating= request.form.get('rating'), rewatch=form.movieRewatch.data, review=form.movieReview.data, 
+            logger=current_user)
         db.session.add(log_data)
         db.session.commit()
         return redirect(url_for('home'), )

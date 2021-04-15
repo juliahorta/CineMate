@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SubmitField, RadioField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SubmitField, RadioField, HiddenField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from wtforms.fields.html5 import DateField
 from app.models import User
@@ -73,7 +73,7 @@ class RateGenres(FlaskForm):
 class LogMovie(FlaskForm):
     dateWatched = DateField('Date Watched', format='%Y-%m-%d', validators=[DataRequired()])
     movieReview = TextAreaField('Review', validators=[Length(min=0, max=140)], render_kw={"placeholder": "Write a review..."})
-    movieRating = RadioField('Rating', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')], validators=[DataRequired()])
+    movieRating = HiddenField('rating', validators=[DataRequired()])
     movieRewatch = BooleanField('Rewatch?')
     submit = SubmitField('Save')
 
