@@ -18,9 +18,10 @@
 
                     {% else %}
                     <li><a class="nav-text" href="{{ url_for('home') }}">Home</a></li>
-                    <li><a class="nav-text" href="{{ url_for('popular') }}">Popular</a></li>
+                    <li><a class="nav-text" href="{{ url_for('popular') }}">Popular Movies</a></li>
                     <li><a class="nav-text" href="{{ url_for('explore') }}">Explore Users</a></li>
-                    <li><a class="nav-text" href="{{ url_for('m_search') }}">Add Movie</a></li>
+                    <li><a class="nav-text" href="{{ url_for('m_search') }}">Log Movie</a></li>
+                    <li><a class="nav-text" href="{{ url_for('rec_m_search') }}">Get Reccomendation</a></li>
                     <li><a class="nav-text" href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
                     <li><a class="nav-text" href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}

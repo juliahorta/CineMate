@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> results for "{{term}}"</h1>
+    <h2 class="res-sub" >click movie name to base recommendations on it</h2>
+        <div class="movie-list-container">
+            {% for movie in results %}
+            {% if movie.poster_path %}
+            <div class="movie-card">
+                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
+                {% if movie.release_date %}
+                <h3><a class="log-link" href="{{ url_for('one_mov_rec', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3>
+                {% else %}
+                <h3><a class="log-link" href="{{ url_for('one_mov_rec', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}}</a></h3>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+{% endblock %}

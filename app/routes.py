@@ -11,10 +11,12 @@ import json
 import urllib.request
 
 
+
 api_key = "c927d9d9994588e8e9c580276b5305b5"
 popular_url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_key + "&language=en-US"
 search_url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" 
 info_url = "https://api.themoviedb.org/3/movie/"
+
 
 @app.before_request
 def before_request():
@@ -147,19 +149,19 @@ def popular():
     json_data = json.loads(conn.read())
     return render_template('popular.html', results=json_data["results"])
 
-@app.route('/genre-rating', methods=['GET', 'POST'])
-def g_rate():
-    form = RateGenres()
-    if form.validate_on_submit():
-        ratings = GenreRating(action = form.action.data, adventure = form.adventure.data, animation = form.animation.data,
-            comedy = form.comedy.data, crime = form.war.data, documentary = form.war.data, drama = form.drama.data,
-            family = form.family.data, fantasy = form.fantasy.data, history = form.history.data, horror = form.horror.data,
-            music = form.music.data, mystery = form.mystery.data, romance = form.romance.data, scifi = form.scifi.data,
-            thriller = form.thriller.data, war = form.war.data, western = form.western.data, g_rater=current_user)
-        db.session.add(ratings)
-        db.session.commit()
-        return redirect(url_for('user', username=current_user.username))
-    return render_template('genre_rating.html', form=form)
+# @app.route('/genre-rating', methods=['GET', 'POST'])
+# def g_rate():
+#     form = RateGenres()
+#     if form.validate_on_submit():
+#         ratings = GenreRating(action = form.action.data, adventure = form.adventure.data, animation = form.animation.data,
+#             comedy = form.comedy.data, crime = form.war.data, documentary = form.war.data, drama = form.drama.data,
+#             family = form.family.data, fantasy = form.fantasy.data, history = form.history.data, horror = form.horror.data,
+#             music = form.music.data, mystery = form.mystery.data, romance = form.romance.data, scifi = form.scifi.data,
+#             thriller = form.thriller.data, war = form.war.data, western = form.western.data, g_rater=current_user)
+#         db.session.add(ratings)
+#         db.session.commit()
+#         return redirect(url_for('user', username=current_user.username))
+#     return render_template('genre_rating.html', form=form)
 
 @app.route('/search-movie', methods=['GET', 'POST'])
 def m_search():
@@ -171,6 +173,27 @@ def m_search():
         json_data = json.loads(conn.read())
         return render_template('search_results.html', results=json_data["results"], term=form.movieName.data)
     return render_template('movie_search.html', form=form)
+
+@app.route('/search-movie-4-recc', methods=['GET', 'POST'])
+def rec_m_search():
+    form = MovieSearch()
+    if form.validate_on_submit():
+        user_search = urllib.parse.quote(form.movieName.data)
+        complete_url = search_url + user_search + "&page=1"
+        conn = urllib.request.urlopen(complete_url)
+        json_data = json.loads(conn.read())
+        return render_template('rec_search_results.html', results=json_data["results"], term=form.movieName.data)
+    return render_template('rec_search.html', form=form)
+
+@app.route('/recommendation-1', methods=['GET', 'POST'])
+def rec_options_1():
+    movieid = request.args['movieid']
+    mname = request.args['mname']
+    myear = request.args['myear']
+    rec_url = info_url + movieid + "/recommendations?api_key=" + api_key + "&page=1"
+    conn = urllib.request.urlopen(rec_url)
+    json_data = json.loads(conn.read())
+    return render_template('user_1_reccs.html', results=json_data["results"][:4])
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 def log_movie():
@@ -189,6 +212,17 @@ def log_movie():
         db.session.commit()
         return redirect(url_for('home'), )
     return render_template('log_movie.html', form=form, result=json_data)
+
+@app.route('/confirm-reccomendation', methods=['GET', 'POST'])
+def one_mov_rec():
+    movieid = request.args['movieid']
+    mname = request.args['mname']
+    myear = request.args['myear']
+    mposter = request.args['mposter']
+    log_url = info_url + movieid + "?api_key=" + api_key
+    conn = urllib.request.urlopen(log_url)
+    json_data = json.loads(conn.read())
+    return render_template('rec_choice_1.html', result=json_data)
 
 @app.route('/explore')
 @login_required
