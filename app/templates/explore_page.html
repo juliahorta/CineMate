@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> <h1>{{ current_user.username }}, meet CineMate's other users...</h1></h1>
+    <h1 class="others">{{ current_user.username }}, meet CineMate's other users...</h1>
     <div class="xplore-cont" >
         {% for u in users %}
         <div class="user-list">
-        <img src="{{ u.avatar(128) }}">
+        <img class="user-icon-exp" src="{{ u.avatar(128) }}">
         <a class="user-link" href="{{ url_for('user', username=u.username) }}"> {{ u.username }}</a>
         </div>
         {% endfor %}

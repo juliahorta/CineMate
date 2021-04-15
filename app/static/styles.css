@@ -11,9 +11,18 @@
   padding-left: 1%;
 }
 
+.user-icon-exp {
+  border-radius: 50% !important;
+  padding-left: 1%;
+
+}
+
+.others {
+  padding-bottom: 2%;
+}
+
 .xplore-cont, .user-list {
-  justify-content: space-around;
-  flex-direction: column;
+  flex-direction: row;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -52,6 +61,7 @@
 
 .user-link {
   padding-top: 5%;
+  float: left; margin: 0px 10px 15px 20px;
 }
 
 
@@ -406,7 +416,6 @@ textarea {
 .log-stars {
   text-align: left;
 }
-
 
 
 /* .log-poster-div {
