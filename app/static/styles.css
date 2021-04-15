@@ -415,6 +415,7 @@ textarea {
 
 .log-stars {
   text-align: left;
+  color: white;
 }
 
 
@@ -448,22 +449,4 @@ textarea {
 h2 {
   color: white;
   text-align: center;
-}
-
-.genre-radio {
-  padding-bottom: 2%;
-  padding-top: 3%;
-}
-
-.genre-options {
-  padding-bottom: 1%;
-}
-
-.rating-wrapper img {
-  filter: invert(99%) sepia(1%) saturate(0%) hue-rotate(161deg) brightness(101%) contrast(104%);
-  padding-right: 3px;
-}
-
-.rating-checked { 
-  filter: none!important; 
 }

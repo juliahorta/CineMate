@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="title">Log Movie</h1>
     <div class="content-log">
-        <form class="log-form" action="/log-movie" method="post">
+        <form class="log-form" action="" method="post">
             <div class="log-poster-div"> 
                 <img class="log-poster" src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="">
                 <div class="rest-log-info">
@@ -11,38 +11,12 @@
                     {{ form.hidden_tag() }}
                     <p class="log-date"> {{ form.dateWatched.label }}  {{ form.dateWatched() }}</p>
                     <div class="review-cont"><p class="log-reveiw"> {{ form.movieReview() }} </p></div>
-                    <div class="rating-wrapper">
-                        <img id="1" src="../static/star.png" width="20">
-                        <img id="2" src="../static/star.png" width="20">
-                            <img id="3" src="../static/star.png" width="20">
-                            <img id="4" src="../static/star.png" width="20">
-                            <img id="5" src="../static/star.png" width="20">
-                       </div>
-                    <p class="log-stars"> {{form.movieRating(id="rating")}}</p>
+                    <p class="log-stars"> {{ form.movieRating() }}</p>
                     <p class="repeat-log">{{ form.movieRewatch.label }} {{ form.movieRewatch() }}</p>
                 </div>
             </div>
-            {{form.csrf_token}}
             <p class="log-button">{{ form.submit() }}</p>
         </form>
     </div>
-
-    <script>
-        document
-            .querySelector(".rating-wrapper")
-            .addEventListener("click", updateStarRating, false);
-        function updateStarRating(evt) {
-            for (i = 0; i < parseInt(evt.target.id); i++) {
-                const stars = document.querySelectorAll(".rating-wrapper img");
-                for (s = 0; s < 5; s++) {
-                    stars[s].classList.remove("rating-checked");
-                }
-                for (j = 0; j < parseInt(evt.target.id); j++) {
-                    stars[j].classList.add("rating-checked");
-                }
-            }
-            document.querySelector("#rating").value = evt.target.id;
-        }
-    </script>
     
 {% endblock %}
