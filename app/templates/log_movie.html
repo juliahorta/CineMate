@@ -10,12 +10,14 @@
                     <h2 class="log-name"> {{ result.title }} ({{ result.release_date[:4] }}) </h2>
                     {{ form.hidden_tag() }}
                     <p class="log-date"> {{ form.dateWatched.label }}  {{ form.dateWatched() }}</p>
-                    <div class="review-cont"><p class="log-reveiw"> {{ form.movieReview() }} </p></div>
+
                     <p class="log-stars"> {{ form.movieRating() }}</p>
+                    <div class="review-cont"><p class="log-reveiw"> {{ form.movieReview() }} </p></div>
                     <p class="repeat-log">{{ form.movieRewatch.label }} {{ form.movieRewatch() }}</p>
-                </div>
+                
             </div>
             <p class="log-button">{{ form.submit() }}</p>
+        </div>
         </form>
         
     </div>
