@@ -25,7 +25,7 @@
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   color: whitesmoke;
   text-align: center;
   padding-bottom: 3%;
@@ -56,6 +56,7 @@
 .following-ers {
   float: right; margin: -51px 1px 15px 500px;
   font-weight: normal;
+  font-family: helvetica;
 }
 
 
@@ -75,6 +76,7 @@
 li {
   display: inline;
   margin: 10px;
+  font-family: helvetica;
 }
 
 
@@ -101,7 +103,7 @@ a {
 body {
   background-color: #35293E !important;
   height: 125vh;
-  font-family: sans-serif;
+  font-family: helvetica;
   margin-top: 100px;
   
 }
@@ -152,10 +154,12 @@ img {
 h1 {
   color: white;
   text-align: center;
+  font-family: helvetica;
 }
 
 h3 {
   color: white;
+  font-family: helvetica;
 }
 
 .form-wrap {
@@ -196,6 +200,7 @@ form {
   border-radius: 25px;
   padding-left: 3%;
   justify-content: space-between;
+  font-family: helvetica;
 }
 
 .result-1-recc {
@@ -233,6 +238,7 @@ form {
   border-radius: 8px;
   padding-bottom: 2%;
   padding-top: 2%;
+  font-family: helvetica;
 }
 
 .user-post-cont{
@@ -242,6 +248,7 @@ form {
 .res-sub {
   text-align: center;
   font-weight: normal;
+  font-family: helvetica;
 }
 
 .post-poster {
@@ -289,6 +296,7 @@ form {
 
 .nav-text {
   color: #DFE2E8;
+  font-family: helvetica;
 }
 
 .nav-text:hover {
@@ -317,11 +325,13 @@ form {
 
 label {
   font-size: auto;
+  font-family: helvetica;
 }
 
 p {
   color: whitesmoke;
   text-align: center;
+  font-family: helvetica;
 }
 
 
@@ -338,6 +348,7 @@ input[type="submit" i] {
   border-radius: 8px;
   padding-bottom: 2%;
   padding-top: 2%;
+  font-family: helvetica;
   
 }
 
@@ -355,6 +366,7 @@ input[type="submit" i] {
   border-radius: 8px;
   padding: 3px 5px;
   display: inline;
+  font-family: helvetica;
 }
 
 .reg-wrap {
@@ -383,6 +395,7 @@ input[type="text" i] {
   border-radius: 4px;
   box-sizing: border-box;
   font-size: auto;
+  font-family: helvetica;
 }
 
 .edit-profile {
@@ -402,6 +415,7 @@ input[type="password" i] {
   border-radius: 4px;
   box-sizing: border-box;
   font-size: auto;
+  font-family: helvetica;
 }
 
 .log-poster {
@@ -417,7 +431,7 @@ input[type="password" i] {
 
 
 input[type="date" i] {
-  font-family: sans-serif;
+  font-family: helvetica;
   padding-left: 5px;
   width: 170px;
 
@@ -438,7 +452,7 @@ h2.log-name {
 } */
 
 textarea {
-  font-family: sans-serif;
+  font-family: helvetica;
   resize: none;
   width: 275px;
   height: 50px;
@@ -475,19 +489,23 @@ textarea {
 h2 {
   color: white;
   text-align: center;
+  font-family: helvetica;
 }
 
 ul {
   color: white;
+  font-family: helvetica;
 }
 
 .se-sub {
   font-weight: normal;
   text-align: center;
+  font-family: helvetica;
 }
 
 .recc-link {
   text-decoration: underline;
+  font-family: helvetica;
 }
 
 .recc-card {
@@ -559,3 +577,14 @@ p.log-review {
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
+
+.imdb-sub {
+  font-weight: normal;
+  font-family: helvetica;
+  text-align: center;
+}
+
+.rec-overview {
+  text-align: justify;
+}
+

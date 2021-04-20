@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1> You might like these films!</h1>
+    <h2 class="imdb-sub"> Click to go on their IMDb pages</h2>
         <div class="recc-list-container">
             {% for movie in results %}
             {% if movie.poster_path %}
@@ -12,6 +13,7 @@
                 {% else %}
                 <h3>{{movie.title}}</h3>
                 {% endif %}
+                <p class="rec-overview"> {{movie.overview}} </p>
             </div>
             {% endif %}
             {% endfor %}

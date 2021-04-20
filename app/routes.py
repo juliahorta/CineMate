@@ -197,6 +197,10 @@ def rec_options_1():
     rec_url = info_url + movieid + "/recommendations?api_key=" + api_key + "&page=1"
     conn = urllib.request.urlopen(rec_url)
     json_data = json.loads(conn.read())
+    # for m in json_data["results"][:4]
+    #     ext_url = info_url +m.id "/external_ids?api_key=" + api_key
+    #     ext_conn = urllib.request.urlopen(ext_url)
+    #     ext_data = json.loads(ext_conn.read())
     return render_template('user_1_reccs.html', results=json_data["results"][:4])
 
 @app.route('/log-movie', methods=['GET', 'POST'])

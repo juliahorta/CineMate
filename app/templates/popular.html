@@ -6,7 +6,11 @@
             {% for movie in results %}
             <div class="movie-card">
                 <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
-                <h3> {{movie.title}}</h3>
+                {% if movie.release_date %}
+                <h3>{{movie.title}} ({{movie.release_date[:4]}})</h3>
+                {% else %}
+                <h3>{{movie.title}}</h3>
+                {% endif %}
             </div>
             {% endfor %}
         </div>   
