@@ -32,6 +32,12 @@
   align-self: center;
 }
 
+.user-list {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .username, .user-bio, .last-seen {
   text-align: left;
   padding-left: 3%;
@@ -83,6 +89,14 @@ li {
 .follow-button {
   text-align: right;
   padding-left: 30%;
+  background-color: #35293E !important;
+}
+
+form.follow-button {
+  padding-bottom: 0px;
+  padding-top: 0px;
+  /* display: None; */
+  margin-top: 0px;
 }
 
 a {
