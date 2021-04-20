@@ -94,6 +94,7 @@ li {
   text-align: right;
   padding-left: 30%;
   background-color: #35293E !important;
+  box-shadow: 0 0 0 0;
 }
 
 form.follow-button {
@@ -375,8 +376,12 @@ input[type="submit" i] {
   padding-bottom: 2%;
   padding-top: 2%;
   font-family: helvetica;
-  box-shadow: 0 0 5px 0 #0f0f0f;
+  box-shadow: 0px 1px 5px 0px #0f0f0f;
   
+}
+
+input#submit {
+  box-shadow: 0px 1px 5px 0px #0f0f0f;
 }
 
 .movie-rec-poster {
