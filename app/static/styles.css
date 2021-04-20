@@ -6,6 +6,10 @@
   text-decoration: underline;
 }
 
+.log-link:hover {
+  text-decoration: underline;
+}
+
 .user-icon {
   border-radius: 50% !important;
   padding-left: 1%;
@@ -397,7 +401,7 @@ input[type="submit" i] {
   text-align: center;
 }
 
-.register-link, .prof-edit, .log-link {
+.register-link, .prof-edit {
   text-decoration: underline;
 }
 

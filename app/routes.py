@@ -148,7 +148,7 @@ def unfollow(username):
 def popular():
     conn = urllib.request.urlopen(popular_url)
     json_data = json.loads(conn.read())
-    return render_template('popular.html', results=json_data["results"])
+    return render_template('popular.html', results=json_data["results"][:18])
 
 # @app.route('/genre-rating', methods=['GET', 'POST'])
 # def g_rate():
