@@ -144,6 +144,7 @@ def unfollow(username):
         return redirect(url_for('index'))
  
 @app.route('/popular')
+@login_required
 def popular():
     conn = urllib.request.urlopen(popular_url)
     json_data = json.loads(conn.read())
@@ -164,6 +165,7 @@ def popular():
 #     return render_template('genre_rating.html', form=form)
 
 @app.route('/search-movie', methods=['GET', 'POST'])
+@login_required
 def m_search():
     form = MovieSearch()
     if form.validate_on_submit():
@@ -175,6 +177,7 @@ def m_search():
     return render_template('movie_search.html', form=form)
 
 @app.route('/search-movie-4-recc', methods=['GET', 'POST'])
+@login_required
 def rec_m_search():
     form = MovieSearch()
     if form.validate_on_submit():
@@ -186,6 +189,7 @@ def rec_m_search():
     return render_template('rec_search.html', form=form)
 
 @app.route('/recommendation-1', methods=['GET', 'POST'])
+@login_required
 def rec_options_1():
     movieid = request.args['movieid']
     mname = request.args['mname']
@@ -196,6 +200,7 @@ def rec_options_1():
     return render_template('user_1_reccs.html', results=json_data["results"][:4])
 
 @app.route('/log-movie', methods=['GET', 'POST'])
+@login_required
 def log_movie():
     movieid = request.args['movieid']
     mname = request.args['mname']
@@ -214,6 +219,7 @@ def log_movie():
     return render_template('log_movie.html', form=form, result=json_data)
 
 @app.route('/confirm-reccomendation', methods=['GET', 'POST'])
+@login_required
 def one_mov_rec():
     movieid = request.args['movieid']
     mname = request.args['mname']

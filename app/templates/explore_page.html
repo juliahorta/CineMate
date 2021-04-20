@@ -5,7 +5,7 @@
     <div class="xplore-cont" >
         {% for u in users %}
         <div class="user-list">
-        <img class="user-icon-exp" src="{{ u.avatar(128) }}">
+       <a href="{{ url_for('user', username=u.username) }}"><img class="user-icon-exp" src="{{ u.avatar(128) }}"></a> 
         <a class="user-link" href="{{ url_for('user', username=u.username) }}"> {{ u.username }}</a>
         </div>
         {% endfor %}
