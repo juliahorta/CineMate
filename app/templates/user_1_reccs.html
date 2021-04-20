@@ -2,17 +2,16 @@
 
 {% block content %}
     <h1> You might like these films!</h1>
-    <h2 class="imdb-sub"> Click to go on their IMDb pages</h2>
         <div class="recc-list-container">
             {% for movie in results %}
             {% if movie.poster_path %}
             <div class="recc-movie-card">
-                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
-                {% if movie.release_date %}
+                <img class="movie-rec-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
+                <!-- {% if movie.release_date %}
                 <h3>{{movie.title}} ({{movie.release_date[:4]}})</h3>
                 {% else %}
                 <h3>{{movie.title}}</h3>
-                {% endif %}
+                {% endif %} -->
                 <p class="rec-overview"> {{movie.overview}} </p>
             </div>
             {% endif %}

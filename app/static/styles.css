@@ -143,15 +143,21 @@ header {
   text-align: right !important;
 }
 
+div.user-post {
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
+}
+
 .movie-card {
   width: 250px;
   max-height: auto;
   padding: 3%;
   align-self: center;
   border-radius: 2px;
-  box-shadow: 4px grey;
-  margin: 12px;
   justify-content: space-between;
+}
+
+.post-poster {
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
 
 .movie-list-container {
@@ -197,14 +203,11 @@ form {
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 8%;
-  /* box-shadow: 0 5px 10px 2px #161616; */
+  /* box-shadow: 0 3px 8px 1px #1a1a1a; */
+  /* box-shadow: 0 0 10px 0 #0f0f0f; */
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
 
-.user-info {
-  /* background-color: #281E2F; */
-  /* padding: 10px;
-  border-radius: 25px; */
-}
 
 .user-post {
   display: inline-block;
@@ -241,6 +244,7 @@ form {
 .rec-poster {
   width: 250px;
   height: auto;
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
 
 .get-rec-b {
@@ -257,6 +261,7 @@ form {
   padding-bottom: 2%;
   padding-top: 2%;
   font-family: helvetica;
+  /* box-shadow: 0 3px 8px 1px #1a1a1a; */
 }
 
 .user-post-cont{
@@ -274,6 +279,7 @@ form {
   height: auto;
   float: left; margin: 0px 35px 15px 0px;
   border-radius: 10px;
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
 
 .p-m-name, .p-re-text, .p-u-rate, .p-rev {
@@ -287,6 +293,8 @@ form {
 
 .search-form{
   margin-top: 5px;
+  /* background-color: #35293E !important;
+  box-shadow: 0 0 0 0 ; */
 }
 
 /* .about-me-box {
@@ -367,7 +375,12 @@ input[type="submit" i] {
   padding-bottom: 2%;
   padding-top: 2%;
   font-family: helvetica;
+  box-shadow: 0 0 5px 0 #0f0f0f;
   
+}
+
+.movie-rec-poster {
+  border-radius: 4%;
 }
 
 .reg-button {
@@ -440,6 +453,7 @@ input[type="password" i] {
   width: 200px;
   height: auto;
   float: left; margin: 0px 35px 15px 0px;
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
 
 .log-date {
