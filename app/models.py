@@ -23,10 +23,6 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     user_genre_ratings = db.relationship('GenreRating', backref='g_rater', lazy='dynamic')
-    # u_g_ratings = db.relationship(
-    #     'User', secondary=genre_ratings,
-    #     primaryjoin=(genre_ratings.c.user_id == id),
-    #     backref=db.backref('g_ratings', lazy='dynamic'), lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -81,25 +77,5 @@ class Diary(db.Model):
     def __repr__(self):
         return '<{} -> Movie: {}, Released: {}, Rating: {}, Rewatch?: {}>'.format(self.date_watched,self.movie_name, self.release_date, self.user_rating, self.rewatch)
 
-class GenreRating(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    action = db.Column(db.Integer)
-    adventure = db.Column(db.Integer)
-    animation = db.Column(db.Integer)
-    comedy = db.Column(db.Integer)
-    crime = db.Column(db.Integer)
-    documentary = db.Column(db.Integer)
-    drama = db.Column(db.Integer)
-    family = db.Column(db.Integer)
-    fantasy = db.Column(db.Integer)
-    history = db.Column(db.Integer)
-    horror = db.Column(db.Integer)
-    music = db.Column(db.Integer)
-    mystery = db.Column(db.Integer)
-    romance = db.Column(db.Integer)
-    scifi = db.Column(db.Integer)
-    thriller = db.Column(db.Integer)
-    war = db.Column(db.Integer)
-    western = db.Column(db.Integer)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 
