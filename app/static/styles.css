@@ -322,7 +322,7 @@ form {
 }
 
 .nav-text {
-  color: #DFE2E8;
+  color: #929396;
   font-family: helvetica;
 }
 
@@ -330,6 +330,14 @@ form {
   color: white;
   text-decoration: underline;
 }
+
+.nav-link {
+  color: #c7c8ca;
+}
+.nav-link:hover {
+  color: white;
+}
+
 
 .user-post {
   padding-right: 3%;
