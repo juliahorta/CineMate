@@ -1,3 +1,61 @@
+  a.navbar-brand {
+    font-family: 'Coolvetica Rg';
+    color: white !important;
+    
+  }
+
+  .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    /* line-height: 20px; */
+    margin-left: 30px;
+}
+
+.nav-bg-fix {
+  background-color: #281E2F;
+  height: 90px;
+}
+
+.nav-link {
+  font-size: 16px;
+  /* line-height: 25px !important; */
+}
+
+  @font-face {
+    font-family: 'Coolvetica Rg';
+    src: url('CoolveticaRg-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: transparent;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+  background-color: transparent;
+}
+
+#myNavbar.collapse.navbar-collapse {
+  background-color: #281E2F;
+  padding: 0px 0px;
+}
+
+ul.nav.navbar-nav.navbar-right {
+  margin: 0px 0px 0px 0px;
+}
+
+nav.navbar.navbar-inverse {
+  margin: 0px 0px 0px 0px;
+}
+
+img.logo {
+  border-radius: 0%;
+}
+
 .body-content{
     background-color: #35293E !important;
   }
@@ -111,8 +169,9 @@ a {
 }
 
 .logo {
-  height: 60px;
-  margin-left: 10%;
+  height: 50px;
+  margin-left: 15%;
+  padding-bottom: 15px;
 }
 
 .logo-link {
@@ -123,13 +182,17 @@ body {
   background-color: #35293E !important;
   height: 125vh;
   font-family: helvetica;
-  margin-top: 100px;
   
 }
 
 .body-content {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.head-nav {
+  background-color: #281E2F;
+  box-shadow: 0 0 10px 0 #0f0f0f;
 }
 
 header {
