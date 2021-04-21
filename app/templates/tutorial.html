@@ -10,35 +10,11 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/styles.css">
-    {{ moment.include_jquery() }}
-    {{ moment.include_moment() }}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        window.document.onkeydown = function (e) {
-            if (!e) {
-                e = event;
-            }
-            if (e.keyCode == 27) {
-                lightbox_close();
-            }
-        }
-
-        function lightbox_open() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            window.scrollTo(0, 0);
-            document.getElementById('light').style.display = 'block';
-            document.getElementById('fade').style.display = 'block';
-            lightBoxVideo.play();
-        }
-
-        function lightbox_close() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            document.getElementById('light').style.display = 'none';
-            document.getElementById('fade').style.display = 'none';
-            lightBoxVideo.pause();
-        }
-    </script>
+    <script src="../static/myscripts.js"></script>
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
 </head>
 
 <body style="text-align: center;">

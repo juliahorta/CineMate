@@ -26,7 +26,6 @@ img.logo-img {
 
 .nav-link {
   font-size: 16px;
-  /* line-height: 25px !important; */
 }
 
   @font-face {
@@ -59,13 +58,6 @@ nav.navbar.navbar-inverse {
   box-shadow: 0 0 10px 0 #0f0f0f;
   
 }
-
-/* img.logo {
-  border-radius: 0%;
-  padding-bottom: 25px;
-  padding-top: 0px;
-  margin-top: 0px;
-} */
 
 .body-content{
     background-color: #35293E !important;
@@ -131,7 +123,6 @@ nav.navbar.navbar-inverse {
 .prof-edit {
   text-align: left;
   padding-left: 3%;
-  /* padding-right: 1%; */
 }
 
 .following-ers {
@@ -141,7 +132,6 @@ nav.navbar.navbar-inverse {
 
 
 .user-link {
-  /* padding-top: 5%; */
   float: left; margin: 0px 0px 0px 0px;
 }
 
@@ -207,23 +197,6 @@ body {
   margin-right: 10%;
 }
 
-/* .head-nav {
-  background-color: #281E2F;
-  box-shadow: 0 0 10px 0 #0f0f0f;
-} */
-
-/* header {
-  background-color: #281E2F;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  box-shadow: 0 0 10px 0 #0f0f0f;
-  text-align: right !important;
-} */
-
 div.user-post {
   box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
@@ -284,8 +257,6 @@ form {
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 8%;
-  /* box-shadow: 0 3px 8px 1px #1a1a1a; */
-  /* box-shadow: 0 0 10px 0 #0f0f0f; */
   box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
 
@@ -365,7 +336,6 @@ a.btn.btn-primary.btn-lg {
   padding-bottom: 2%;
   padding-top: 2%;
   font-family: helvetica;
-  /* box-shadow: 0 3px 8px 1px #1a1a1a; */
 }
 
 a.get-rec-b {
@@ -401,8 +371,7 @@ a.get-rec-b {
 
 .search-form{
   margin-top: 5px;
-  /* background-color: #35293E !important;
-  box-shadow: 0 0 0 0 ; */
+
 }
 
 input[type="text" i], input[type="password" i] {
@@ -410,9 +379,6 @@ input[type="text" i], input[type="password" i] {
   margin-top: 10px;
 }
 
-/* .about-me-box {
-  margin-left: 20%;
-} */
 
 .p-date {
   text-decoration-thickness: None;
@@ -423,8 +389,6 @@ input[type="text" i], input[type="password" i] {
 }
 
 .home-content {
-  /* background-color: #281E2F;
-  border-radius: 25px; */
   padding-bottom: 3%;
 
 }
@@ -509,11 +473,6 @@ input#submit {
 }
 
 .reg-button {
-  /* color: white !important;
-  background-color: teal !important; */
-  /* border-style: none; */
-  /* text-align: center;
-  text-decoration: none; */
   display: inline-block;
   text-align: center;
   font-size: 90%;
@@ -588,7 +547,6 @@ input[type="password" i] {
 
 .log-date {
   text-align: center;
-  /* padding-left: 5%; */
 }
 
 
@@ -605,13 +563,8 @@ h2.log-name {
 }
 
 .log-name {
-  /* padding-left: 5% !important; */
   text-align: center;
 }
-
-/* .log-review, .review-cont {
-  text-align: left !important;
-} */
 
 textarea {
   font-family: helvetica;
@@ -814,20 +767,6 @@ p.log-review {
   display: none;
 }
 
-/* div.button-tut {
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  text-align: center;
-} */
-/* a.btn.btn-primary.btn-lg {
-  text-align: center;
-  justify-content: space-around;
-  width: fit-content;
-  margin-top: 1%;
-
-} */
-
 a.btn.btn-primary.btn-lg {
   width: fit-content;
   margin: 0 auto;
@@ -850,26 +789,6 @@ div.button-tut {
   padding: 2%; 
 }
 
-
- /* .tutorial-cont {
-  justify-content: center;
-  flex-direction: column;
-  padding-top: 20px;
-  flex-direction: column;
-  align-content: center; 
-  width: fit-content;
-  text-align: center;
-  background-color: #281E2F;
-  border-radius: 25px;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 8%;
-  box-shadow: 0 2px 9px 1px #1a1a1a; 
-  padding: 3%; 
-}  */
-
-/* dropdown styling */
-
 /* Dropdown Button */
 #dropbtn {
   background-color: #281E2F;
@@ -879,10 +798,6 @@ div.button-tut {
   cursor: pointer;
 }
 
-/* Dropdown button on hover & focus */
-/* #dropbtn:hover, #dropbtn:focus {
-  background-color: #3e8e41;
-} */
 
 /* The search field */
 #myInput {
@@ -897,9 +812,6 @@ div.button-tut {
   width: fit-content;
   text-align: left;
 }
-
-/* The search field when it gets focus/clicked on
-#myInput:focus {outline: 3px solid #ddd;} */
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
