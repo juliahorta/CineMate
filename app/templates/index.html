@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Hi, {{ current_user.username }}! Here's what your friends have been watching...</h2>
-    <div class="body-post-cont"> 
+<h2>Hi, {{ current_user.username }}! Here's what your friends have been watching...</h2>
+<div class="body-post-cont">
     <div class="home-content">
         {% for post in posts %}
         <div class="posts-cont">
@@ -11,9 +11,15 @@
                 <div class="post-text">
                     <h2 class="p-m-name"> {{ post.movie_name }} ({{ post.release_date[:4] }}) </h2>
                     {% if post.rewatch %}
-                    <p class="p-re-text"> Rewatched by <b><a class="poster-name" href="{{ url_for('user', username=post.logger.username) }}"> {{ post.logger.username }} </a></b> on {{ post.date_watched[8:10] }}/{{ post.date_watched[5:7] }}/{{ post.date_watched[:4] }}</p>
+                    <p class="p-re-text"> Rewatched by <b><a class="poster-name"
+                                href="{{ url_for('user', username=post.logger.username) }}"> {{ post.logger.username }}
+                            </a></b> on {{ post.date_watched[8:10] }}/{{ post.date_watched[5:7] }}/{{
+                        post.date_watched[:4] }}</p>
                     {% else %}
-                    <p class="p-re-text"> Watched by <b><a class="poster-name" href="{{ url_for('user', username=post.logger.username) }}"> {{ post.logger.username }} </a></b> on {{ post.date_watched[8:10] }}/{{ post.date_watched[5:7] }}/{{ post.date_watched[:4] }}</p>
+                    <p class="p-re-text"> Watched by <b><a class="poster-name"
+                                href="{{ url_for('user', username=post.logger.username) }}"> {{ post.logger.username }}
+                            </a></b> on {{ post.date_watched[8:10] }}/{{ post.date_watched[5:7] }}/{{
+                        post.date_watched[:4] }}</p>
                     {% endif %}
                     <p class="p-u-rate"> Rating: {{ post.user_rating }} Stars</p>
                     {% if post.review %}
@@ -31,7 +37,6 @@
         <a class="pages-link" href="{{ prev_url }}">Newer posts</a>
         {% endif %}
     </div>
-    
-    </div>
-{% endblock %}
 
+</div>
+{% endblock %}
