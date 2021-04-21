@@ -322,6 +322,29 @@ form {
   height: auto;
   box-shadow: 0 2px 9px 1px #1a1a1a; 
 }
+.ready-b {
+  color: white !important;
+  background-color: teal !important;
+  border-style: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px;
+  width: 20%;
+  border-radius: 8px;
+  padding-bottom: 1.5%;
+  padding-top: 1.5%;
+}
+
+a.btn.btn-primary.btn-lg {
+  background-color: teal;
+  border-color: teal;
+}
+
+.ready-cont {
+  text-align: center;
+}
 
 .get-rec-b {
   color: white !important;
@@ -716,3 +739,118 @@ p.log-review {
   text-align: justify;
 }
 
+/* video pop up */
+
+#fade {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+#light {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 600px;
+  max-height: 360px;
+  margin-left: -300px;
+  margin-top: -180px;
+  border: 2px solid #FFF;
+  background: #FFF;
+  z-index: 1002;
+  overflow: visible;
+}
+
+#boxclose {
+  float: right;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+.boxclose:before {
+  content: "×";
+}
+
+#fade:hover ~ #boxclose {
+  display:none;
+}
+
+.test:hover ~ .test2 {
+  display: none;
+}
+
+/* div.button-tut {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  text-align: center;
+} */
+/* a.btn.btn-primary.btn-lg {
+  text-align: center;
+  justify-content: space-around;
+  width: fit-content;
+  margin-top: 1%;
+
+} */
+
+a.btn.btn-primary.btn-lg {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+div.button-tut {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.tut-cont {
+  background-color: #281E2F;
+  border-radius: 25px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 8%;
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
+  padding: 2%; 
+}
+
+
+ /* .tutorial-cont {
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+  flex-direction: column;
+  align-content: center; 
+  width: fit-content;
+  text-align: center;
+  background-color: #281E2F;
+  border-radius: 25px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 8%;
+  box-shadow: 0 2px 9px 1px #1a1a1a; 
+  padding: 3%; 
+}  */

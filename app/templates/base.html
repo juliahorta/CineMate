@@ -14,6 +14,31 @@
   {{ moment.include_moment() }}
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    window.document.onkeydown = function (e) {
+        if (!e) {
+            e = event;
+        }
+        if (e.keyCode == 27) {
+            lightbox_close();
+        }
+    }
+
+    function lightbox_open() {
+        var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+        window.scrollTo(0, 0);
+        document.getElementById('light').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+        lightBoxVideo.play();
+    }
+
+    function lightbox_close() {
+        var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+        document.getElementById('light').style.display = 'none';
+        document.getElementById('fade').style.display = 'none';
+        lightBoxVideo.pause();
+    }
+</script>
 </head>
 
 <body>
@@ -51,6 +76,9 @@
             <a class="nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#" onclick="lightbox_open();">Help</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
           </li>
           {% endif %}
@@ -59,7 +87,13 @@
     </div>
   </nav>
 
-
+  <div id="light">
+    <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+    <video id="VisaChipCardVideo" width="600" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <!--Browser does not support <video> tag -->
+    </video>
+</div>
 
   <div class="container">
     <div class="body-content">

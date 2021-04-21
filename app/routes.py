@@ -72,8 +72,12 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('login'))
+        return redirect(url_for('welcome_c'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/welcome')
+def welcome_c():
+    return render_template('tutorial.html')
 
 @app.route('/user/<username>')
 @login_required

@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CineMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        window.document.onkeydown = function (e) {
+            if (!e) {
+                e = event;
+            }
+            if (e.keyCode == 27) {
+                lightbox_close();
+            }
+        }
+
+        function lightbox_open() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            window.scrollTo(0, 0);
+            document.getElementById('light').style.display = 'block';
+            document.getElementById('fade').style.display = 'block';
+            lightBoxVideo.play();
+        }
+
+        function lightbox_close() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            document.getElementById('light').style.display = 'none';
+            document.getElementById('fade').style.display = 'none';
+            lightBoxVideo.pause();
+        }
+    </script>
+</head>
+
+<body style="text-align: center;">
+    <div class="tutorial-cont">
+        <div id="light">
+            <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+            <video id="VisaChipCardVideo" width="600" controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <!--Browser does not support <video> tag -->
+            </video>
+        </div>
+        <div id="fade" onClick="lightbox_close();"></div>
+
+        <div class="tut-cont">
+            <h1 style="padding-bottom: 10px;"> Welcome to CineMate!</h1>
+            <div style="text-align: center;">
+                <div class="button-tut">
+                    <a href="#" onclick="lightbox_open();" type="button" style="background-color: teal;"
+                        class="btn btn-primary btn-lg">Click here for Tutorial Video</a>
+                    <p></p>
+                    <a href="{{ url_for('login') }}" type="button" style="background-color: teal;"
+                        class="btn btn-primary btn-lg">Click here to login</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+
+</html>
