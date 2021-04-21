@@ -39,9 +39,33 @@
         lightBoxVideo.pause();
     }
 </script>
+<script>
+  /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+</script>
 </head>
 
 <body>
+  <div id="fade" onClick="lightbox_close();"></div>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -61,19 +85,25 @@
           {% if current_user.is_anonymous %}
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('popular') }}">Popular Movies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('explore') }}">Explore Users</a>
+            <a class="nav-link" href="{{ url_for('popular') }}">Trending Movies</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('m_search') }}">Log Movie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('rec_m_search') }}">Get Recommendation</a>
+            <a class="nav-link" href="{{ url_for('rec_m_search') }}">Recommendations</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" onclick="myFunction()" id="dropbtn" class="nav-link" href="#">Users</a>
+            <div id="myDropdown" class="dropdown-content">
+              <input type="text" placeholder="Search Users..." id="myInput" onkeyup="filterFunction()">
+              {% for u in users %}
+              <a href="{{ url_for('user', username=u.username) }}"> {{ u.username }}</a>
+              {% endfor %}
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="lightbox_open();">Help</a>

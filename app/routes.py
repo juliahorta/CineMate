@@ -31,6 +31,7 @@ def default():
 @app.route('/home')
 @login_required
 def home():
+    users = User.query.order_by(User.username.desc()).all()
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_entries().paginate(
         page, app.config['POSTS_PER_PAGE'], False)
@@ -38,12 +39,13 @@ def home():
         if posts.has_next else None
     prev_url = url_for('home', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title='Home', posts=posts.items, next_url=next_url, prev_url=prev_url)
+    return render_template('index.html', title='Home', posts=posts.items, next_url=next_url, prev_url=prev_url, users=users)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        users = User.query.order_by(User.username.desc()).all()
+        return redirect(url_for('home'), users=users)
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -65,7 +67,8 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        users = User.query.order_by(User.username.desc()).all()
+        return redirect(url_for('home'), users=users)
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -82,6 +85,7 @@ def welcome_c():
 @app.route('/user/<username>')
 @login_required
 def user(username):
+    users = User.query.order_by(User.username.desc()).all()
     user = User.query.filter_by(username=username).first_or_404()
     page = request.args.get('page', 1, type=int)
     posts = user.entries.order_by(Diary.date_watched.desc()).paginate(
@@ -92,11 +96,12 @@ def user(username):
         if posts.has_prev else None
     form = EmptyForm()
     return render_template('user.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url, form=form)
+                           next_url=next_url, prev_url=prev_url, form=form, users=users)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
+    users = User.query.order_by(User.username.desc()).all()
     form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
         current_user.username = form.username.data
@@ -107,11 +112,12 @@ def edit_profile():
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile',
-                           form=form)
+                           form=form, users=users)
 
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
 def follow(username):
+    users = User.query.order_by(User.username.desc()).all()
     form = EmptyForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
@@ -124,35 +130,37 @@ def follow(username):
         current_user.follow(user)
         db.session.commit()
         # flash('You are following {}!'.format(username))
-        return redirect(url_for('user', username=username))
+        return redirect(url_for('user', username=username, users=users))
     else:
-        return redirect(url_for('index'))
+        return redirect(url_for('index'), users=users)
 
 @app.route('/unfollow/<username>', methods=['POST'])
 @login_required
 def unfollow(username):
+    users = User.query.order_by(User.username.desc()).all()
     form = EmptyForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
         if user is None:
             flash('User {} not found.'.format(username))
-            return redirect(url_for('index'))
+            return redirect(url_for('index'), users=users)
         if user == current_user:
             flash('You cannot unfollow yourself!')
-            return redirect(url_for('user', username=username))
+            return redirect(url_for('user', username=username), users=users)
         current_user.unfollow(user)
         db.session.commit()
         flash('You are not following {}.'.format(username))
-        return redirect(url_for('user', username=username))
+        return redirect(url_for('user', username=username), users=users)
     else:
-        return redirect(url_for('index'))
+        return redirect(url_for('index'), users=users)
  
 @app.route('/popular')
 @login_required
 def popular():
+    users = User.query.order_by(User.username.desc()).all()
     conn = urllib.request.urlopen(popular_url)
     json_data = json.loads(conn.read())
-    return render_template('popular.html', results=json_data["results"][:18])
+    return render_template('popular.html', results=json_data["results"][:18], users=users)
 
 # @app.route('/genre-rating', methods=['GET', 'POST'])
 # def g_rate():
@@ -171,30 +179,33 @@ def popular():
 @app.route('/search-movie', methods=['GET', 'POST'])
 @login_required
 def m_search():
+    users = User.query.order_by(User.username.desc()).all()
     form = MovieSearch()
     if form.validate_on_submit():
         user_search = urllib.parse.quote(form.movieName.data)
         complete_url = search_url + user_search + "&page=1"
         conn = urllib.request.urlopen(complete_url)
         json_data = json.loads(conn.read())
-        return render_template('search_results.html', results=json_data["results"], term=form.movieName.data)
-    return render_template('movie_search.html', form=form)
+        return render_template('search_results.html', results=json_data["results"], term=form.movieName.data, users=users)
+    return render_template('movie_search.html', form=form, users=users)
 
 @app.route('/search-movie-4-recc', methods=['GET', 'POST'])
 @login_required
 def rec_m_search():
+    users = User.query.order_by(User.username.desc()).all()
     form = MovieSearch()
     if form.validate_on_submit():
         user_search = urllib.parse.quote(form.movieName.data)
         complete_url = search_url + user_search + "&page=1"
         conn = urllib.request.urlopen(complete_url)
         json_data = json.loads(conn.read())
-        return render_template('rec_search_results.html', results=json_data["results"], term=form.movieName.data)
-    return render_template('rec_search.html', form=form)
+        return render_template('rec_search_results.html', results=json_data["results"], term=form.movieName.data, users=users)
+    return render_template('rec_search.html', form=form, users=users)
 
 @app.route('/recommendation-1', methods=['GET', 'POST'])
 @login_required
 def rec_options_1():
+    users = User.query.order_by(User.username.desc()).all()
     movieid = request.args['movieid']
     mname = request.args['mname']
     myear = request.args['myear']
@@ -205,11 +216,12 @@ def rec_options_1():
     #     ext_url = info_url +m.id "/external_ids?api_key=" + api_key
     #     ext_conn = urllib.request.urlopen(ext_url)
     #     ext_data = json.loads(ext_conn.read())
-    return render_template('user_1_reccs.html', results=json_data["results"][:4])
+    return render_template('user_1_reccs.html', results=json_data["results"][:4], users=users)
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 @login_required
 def log_movie():
+    users = User.query.order_by(User.username.desc()).all()
     movieid = request.args['movieid']
     mname = request.args['mname']
     myear = request.args['myear']
@@ -223,12 +235,13 @@ def log_movie():
             rewatch=form.movieRewatch.data, review=form.movieReview.data, logger=current_user)
         db.session.add(log_data)
         db.session.commit()
-        return redirect(url_for('home'), )
-    return render_template('log_movie.html', form=form, result=json_data)
+        return redirect(url_for('home'), users=users)
+    return render_template('log_movie.html', form=form, result=json_data, users=users)
 
 @app.route('/confirm-reccomendation', methods=['GET', 'POST'])
 @login_required
 def one_mov_rec():
+    users = User.query.order_by(User.username.desc()).all()
     movieid = request.args['movieid']
     mname = request.args['mname']
     myear = request.args['myear']
@@ -236,10 +249,4 @@ def one_mov_rec():
     log_url = info_url + movieid + "?api_key=" + api_key
     conn = urllib.request.urlopen(log_url)
     json_data = json.loads(conn.read())
-    return render_template('rec_choice_1.html', result=json_data)
-
-@app.route('/explore')
-@login_required
-def explore():
-    users = User.query.order_by(User.username.desc()).all()
-    return render_template('explore_page.html', title='Explore', users=users)
+    return render_template('rec_choice_1.html', result=json_data, users=users)

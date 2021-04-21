@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1> results for "{{term}}"</h1>
-<h2 class="res-sub">click movie name to base recommendations on it</h2>
+<!-- <h2 class="res-sub">click movie name to base recommendations on it</h2> -->
 <div class="movie-list-container">
     {% for movie in results %}
     {% if movie.poster_path %}
@@ -11,11 +11,11 @@
         <a
             href="{{ url_for('one_mov_rec', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"><img
                 src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
-        <!-- <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3> -->
+        <h4><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h4>
         {% else %}
         <a href="{{ url_for('one_mov_rec', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"><img
                 src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
-        <!-- <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}}</a></h3> -->
+        <h4><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}}</a></h4>
         {% endif %}
     </div>
     {% endif %}
