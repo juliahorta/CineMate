@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="title">Log Movie</h1>
     <div class="content-log">
         <form class="log-form" action="" method="post">
             <div class="log-poster-div"> 
                 <img class="log-poster" src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="">
                 <div class="rest-log-info">
-                    <h2 class="log-name"> {{ result.title }} ({{ result.release_date[:4] }}) </h2>
+                    <h2 class="log-name"> <b>{{ result.title }} ({{ result.release_date[:4] }})</b> </h2>
                     {{ form.hidden_tag() }}
-                    <p class="log-date"> {{ form.dateWatched.label }}  {{ form.dateWatched() }}</p>
-
+                    <p class="log-date"> {{ form.dateWatched.label }}:  {{ form.dateWatched() }}</p>
+                    <div class="star-cont">
                     <p class="log-stars"> {{ form.movieRating() }}</p>
+                    </div>
                     <div class="review-cont"><p class="log-reveiw"> {{ form.movieReview() }} </p></div>
                     <p class="repeat-log">{{ form.movieRewatch.label }} {{ form.movieRewatch() }}</p>
                 

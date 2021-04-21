@@ -13,16 +13,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-            <div class="nav-bg-fix">
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container-fluid">
                   <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ url_for('home') }}"><img class="logo" src="../static/nlogo.png"></a>
+                    <a class="navbar-brand" href="{{ url_for('home') }}"> CineMate </a>
+                    <!-- <img class="logo-img" src="../static/nlogo.png"> -->
+                    {% if current_user.is_anonymous %}
+                    {% else %}
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>                        
                     </button>
+                    {% endif %}
                   </div>
                   <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -51,7 +54,7 @@
                   </div>
                 </div>
               </nav>
-            </div>
+
         
 
         <div class="container">

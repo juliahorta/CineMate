@@ -1,21 +1,23 @@
   a.navbar-brand {
     font-family: 'Coolvetica Rg';
-    color: white !important;
+    color: #e0e1e7 !important;
     
   }
 
   .navbar-brand {
     float: left;
-    height: 50px;
-    padding: 15px 15px;
-    font-size: 18px;
-    /* line-height: 20px; */
-    margin-left: 30px;
+    /* height: 50px; */
+    padding: 20px 15px;
+    font-size: 38px;
+    margin-left: 50px;
+    padding-left: 20px;
 }
 
-.nav-bg-fix {
-  background-color: #281E2F;
-  height: 90px;
+img.logo-img {
+  height: 50px;
+  width: auto;
+  padding-bottom: 15px;
+  border-radius: 0%;
 }
 
 .nav-link {
@@ -50,11 +52,16 @@ ul.nav.navbar-nav.navbar-right {
 
 nav.navbar.navbar-inverse {
   margin: 0px 0px 0px 0px;
+  box-shadow: 0 0 10px 0 #0f0f0f;
+  
 }
 
-img.logo {
+/* img.logo {
   border-radius: 0%;
-}
+  padding-bottom: 25px;
+  padding-top: 0px;
+  margin-top: 0px;
+} */
 
 .body-content{
     background-color: #35293E !important;
@@ -92,6 +99,7 @@ img.logo {
   text-align: center;
   padding-bottom: 3%;
   align-self: center;
+  margin: 5px;
 }
 
 .user-list {
@@ -122,9 +130,8 @@ img.logo {
 }
 
 .following-ers {
-  float: right; margin: -51px 1px 15px 500px;
+  float: right; margin: -41px 1px 15px 300px;
   font-weight: normal;
-  font-family: helvetica;
 }
 
 
@@ -150,7 +157,7 @@ li {
 
 .follow-button {
   text-align: right;
-  padding-left: 30%;
+
   background-color: #35293E !important;
   box-shadow: 0 0 0 0;
 }
@@ -158,8 +165,9 @@ li {
 form.follow-button {
   padding-bottom: 0px;
   padding-top: 0px;
-  /* display: None; */
   margin-top: 0px;
+  margin: 0px 0px 0px 0px;
+  text-align: left;
 }
 
 a {
@@ -169,9 +177,8 @@ a {
 }
 
 .logo {
-  height: 50px;
-  margin-left: 15%;
-  padding-bottom: 15px;
+  height: 70px;
+  margin-left: 35%;
 }
 
 .logo-link {
@@ -182,7 +189,12 @@ body {
   background-color: #35293E !important;
   height: 125vh;
   font-family: helvetica;
+  margin-top: 7%;
   
+}
+
+.user-body {
+  margin-top: 2%;
 }
 
 .body-content {
@@ -190,12 +202,12 @@ body {
   margin-right: 10%;
 }
 
-.head-nav {
+/* .head-nav {
   background-color: #281E2F;
   box-shadow: 0 0 10px 0 #0f0f0f;
-}
+} */
 
-header {
+/* header {
   background-color: #281E2F;
   position: fixed;
   top: 0;
@@ -205,7 +217,7 @@ header {
   display: flex;
   box-shadow: 0 0 10px 0 #0f0f0f;
   text-align: right !important;
-}
+} */
 
 div.user-post {
   box-shadow: 0 2px 9px 1px #1a1a1a; 
@@ -261,7 +273,7 @@ form {
   padding: 10px;
   width: 50%;
   text-align: center;
-  max-width: 60%;
+  max-width: 80%;
   background-color: #281E2F;
   border-radius: 25px;
   margin-left: 20%;
@@ -284,8 +296,8 @@ form {
   background-color:#281E2F;
   border-radius: 25px;
   padding-left: 3%;
-  justify-content: space-between;
   font-family: helvetica;
+  margin-bottom: 1%;
 }
 
 .result-1-recc {
@@ -361,6 +373,11 @@ form {
   box-shadow: 0 0 0 0 ; */
 }
 
+input[type="text" i], input[type="password" i] {
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
 /* .about-me-box {
   margin-left: 20%;
 } */
@@ -385,7 +402,7 @@ form {
 }
 
 .nav-text {
-  color: #929396;
+  color: #ecedee;
   font-family: helvetica;
 }
 
@@ -395,7 +412,7 @@ form {
 }
 
 .nav-link {
-  color: #c7c8ca;
+  color: #ecedee;
 }
 .nav-link:hover {
   color: white;
@@ -494,7 +511,7 @@ input#submit {
   text-decoration: underline;
 }
 
-input[type="text" i] {
+input[type="text" i], input[type="password" i] {
   width: 55%;
   padding: 7px 5px;
   display: inline-block;
@@ -503,6 +520,7 @@ input[type="text" i] {
   box-sizing: border-box;
   font-size: auto;
   font-family: helvetica;
+  color: #0f0f0f;
 }
 
 .edit-profile {
@@ -542,7 +560,7 @@ input[type="date" i] {
   font-family: helvetica;
   padding-left: 5px;
   width: 170px;
-
+  color: #3f3f3f;
 }
 
 h2.log-name {
@@ -588,7 +606,7 @@ textarea {
   margin-top: 1% !important;
   padding-left: 5%;
   padding-right: 5%;
-  width: 90%;
+  width: 70%;
 }
 .content-log {
   text-align: center;
@@ -638,9 +656,9 @@ ul {
 
 #movieRating {
   border: none;
-  float: left;
   
 }
+
 
 #movieRating label {
   color: #90A0A3;
@@ -678,7 +696,9 @@ ul#movieRating {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
-  float: left;
+  float: left; margin-left: -7%;
+  font-weight: 700 !important;
+
 }
 
 p.log-review {

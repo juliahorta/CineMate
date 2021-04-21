@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> <h1>Hi, {{ current_user.username }}! Here's what your friends have been watching...</h1></h1>
+    <h2>Hi, {{ current_user.username }}! Here's what your friends have been watching...</h2>
     <div class="body-post-cont"> 
     <div class="home-content">
         {% for post in posts %}
