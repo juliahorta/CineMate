@@ -10,8 +10,7 @@
         <a class="get-rec-b"
             href="{{ url_for('rec_options_1', mname=result.title, myear=result.release_date[:4], movieid=result.id) }}">
             Get Recommendation</a>
-            <a class="get-rec-b"
-            href="{{ url_for('rec_m_search_2', movie1id=result.id) }}">
+        <a class="get-rec-b" href="{{ url_for('rec_m_search_2', movie1id=result.id) }}">
             Add Another Movie</a>
     </div>
 </div>

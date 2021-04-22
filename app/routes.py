@@ -10,13 +10,10 @@ from datetime import datetime
 import json
 import urllib.request
 
-
-
 api_key = "c927d9d9994588e8e9c580276b5305b5"
 popular_url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_key + "&language=en-US"
 search_url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" 
 info_url = "https://api.themoviedb.org/3/movie/"
-
 
 @app.before_request
 def before_request():
@@ -216,6 +213,21 @@ def rec_m_search_2():
         return render_template('rec_search_results_2.html', results=json_data["results"], term=form.movieName.data, users=users, movie1id=movie1id)
     return render_template('rec_search2.html', form=form, users=users)
 
+@app.route('/search-movie-3-4-recc', methods=['GET', 'POST'])
+@login_required
+def rec_m_search_3():
+    users = User.query.order_by(User.username.desc()).all()
+    movie1id = request.args['movie1id']
+    movie2id = request.args['movie2id']
+    form = MovieSearch()
+    if form.validate_on_submit():
+        user_search = urllib.parse.quote(form.movieName.data)
+        complete_url = search_url + user_search + "&page=1"
+        conn = urllib.request.urlopen(complete_url)
+        json_data = json.loads(conn.read())
+        return render_template('rec_search_results_3.html', results=json_data["results"], term=form.movieName.data, users=users, movie1id=movie1id, movie2id=movie2id)
+    return render_template('rec_search3.html', form=form, users=users)
+
 @app.route('/recommendation-1', methods=['GET', 'POST'])
 @login_required
 def rec_options_1():
@@ -253,6 +265,35 @@ def rec_options_2():
 
     return render_template('user_2_reccs.html', results=json_data_common[:3], seperate=json_data_total, users=users)
 
+@app.route('/recommendation-3', methods=['GET', 'POST'])
+@login_required
+def rec_options_3():
+    users = User.query.order_by(User.username.desc()).all()
+    movie1id = request.args['movie1id']
+    movie2id = request.args['movie2id']
+    movie3id = request.args['movie3id']
+
+    rec_url1 = info_url + movie1id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn1 = urllib.request.urlopen(rec_url1)
+    json_data1 = json.loads(conn1.read())
+    movies_for_1 = json_data1["results"]
+
+    rec_url2 = info_url + movie2id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn2 = urllib.request.urlopen(rec_url2)
+    json_data2 = json.loads(conn2.read())
+    movies_for_2 = json_data2["results"]
+
+    rec_url3 = info_url + movie3id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn3 = urllib.request.urlopen(rec_url3)
+    json_data3 = json.loads(conn3.read())
+    movies_for_3 = json_data3["results"]
+
+    json_data_total = []
+    json_data_common = [d for d in movies_for_1 if d in movies_for_2 or d in movies_for_3 and d != movie1id or movie2id or movie3id]
+    if not json_data_common:
+        json_data_total = json_data1["results"][:3] + json_data2["results"][:3] + json_data3["results"][:3]
+        
+    return render_template('user_3_reccs.html', results=json_data_common[:3], seperate=json_data_total, users=users)
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 @login_required
@@ -302,3 +343,24 @@ def two_mov_rec():
     conn2 = urllib.request.urlopen(log_url2)
     json_data_2 = json.loads(conn2.read())
     return render_template('rec_choice_2.html', result1=json_data_1, result2=json_data_2, users=users)
+
+@app.route('/confirm-reccomendation3', methods=['GET', 'POST'])
+@login_required
+def three_mov_rec():
+    users = User.query.order_by(User.username.desc()).all()
+    movie1id = request.args['movie1id']
+    movie2id = request.args['movie2id']
+    movie3id = request.args['movie3id']
+    
+    log_url = info_url + movie1id + "?api_key=" + api_key
+    conn = urllib.request.urlopen(log_url)
+    json_data_1 = json.loads(conn.read())
+
+    log_url2 = info_url + movie2id + "?api_key=" + api_key
+    conn2 = urllib.request.urlopen(log_url2)
+    json_data_2 = json.loads(conn2.read())
+
+    log_url3 = info_url + movie3id + "?api_key=" + api_key
+    conn3 = urllib.request.urlopen(log_url3)
+    json_data_3 = json.loads(conn3.read())
+    return render_template('rec_choice_3.html', result1=json_data_1, result2=json_data_2, result3=json_data_3, users=users)
