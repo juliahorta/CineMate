@@ -245,12 +245,13 @@ def rec_options_2():
     json_data2 = json.loads(conn2.read())
     movies_for_2 = json_data2["results"]
 
-    json_data_total = {x:movies_for_1[x] for x in movies_for_1 
-                              if x in movies_for_2}
-    if not json_data_total:
-        json_data_total = {**movies_for_1[:3], **movies_for_2[:3]} 
+    json_data_total = []
+    json_data_common = [d for d in movies_for_1 if d in movies_for_2]
+    if not json_data_common:
+        json_data_total = json_data1["results"][:3] + json_data2["results"][:3]
+        
 
-    return render_template('user_2_reccs.html', results=json_data_total, users=users)
+    return render_template('user_2_reccs.html', results=json_data_common[:3], seperate=json_data_total, users=users)
 
 
 @app.route('/log-movie', methods=['GET', 'POST'])

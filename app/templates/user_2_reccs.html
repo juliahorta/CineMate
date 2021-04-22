@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 style="margin-bottom: 30px;"> You might like these films!</h1>
+<h1> You might like these films!</h1>
 <div class="recc-list-container">
     {% for movie in results %}
     {% if movie.poster_path %}
@@ -17,6 +17,23 @@
     </div>
     {% endif %}
     {% endfor %}
-    <h2> {{stat_num}} </h2>
+    {% if seperate%}
+    <h3 style="margin-bottom: 30px;" > There were no common films, so these are the top 3 recommendations for each of the films selected</h3>
+    {% endif %}
+    {% for m in seperate %}
+    {% if m.poster_path %}
+    <div class="recc-movie-card">
+        <img class="movie-rec-poster" src="https://image.tmdb.org/t/p/w500/{{m.poster_path}}" alt="">
+        {% if m.release_date %}
+                <h3>{{m.title}} ({{m.release_date[:4]}})</h3>
+                {% else %}
+                <h3>{{m.title}}</h3>
+                {% endif %}
+        <p><b>Average Rating:</b> {{m.vote_average}}/10 Stars </p>
+        <p class="rec-overview"> {{m.overview}} </p>
+    </div>
+    {% endif %}
+    {% endfor %}
+    
 </div>
 {% endblock %}
