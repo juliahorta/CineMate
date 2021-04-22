@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 style="margin-bottom: 30px;"> You might like these films!</h1>
+<h1 style="margin-bottom: 30px;"> CineMate Recommends:</h1>
 <div class="recc-list-container">
     {% for movie in results %}
     {% if movie.poster_path %}

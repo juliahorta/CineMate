@@ -847,3 +847,59 @@ div.button-tut {
 div.recc-movie-card {
   margin-bottom: 20px;
 }
+
+
+div.two-mov-cho {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 2%;
+} 
+
+div.two-mov-card {
+  width: 250px;
+  height: auto;
+  justify-content: space-evenly;
+}
+
+div.four-mov-card {
+  width: 200px;
+  height: auto;
+  justify-content: space-evenly;
+}
+
+div.result-2-recc {
+  display: inline-block;
+  flex-direction: row;
+  align-content: center;
+  width: 80%;
+  padding-top: 3%;
+  padding-bottom: 1%;
+  justify-content: space-around;
+  background-color:#281E2F;
+  border-radius: 25px;
+  justify-content: space-between;
+  padding-right: 3%;
+  padding-left: 3%;
+}
+
+div.result-3-recc {
+  display: inline-block;
+  flex-direction: row;
+  align-content: center;
+  width: 100%;
+  padding-top: 3%;
+  padding-bottom: 1%;
+  justify-content: space-around;
+  background-color:#281E2F;
+  border-radius: 25px;
+  justify-content: space-between;
+  padding-right: 3%;
+  padding-left: 3%;
+}
+
+div.one-mov-card {
+  margin-bottom: 2%;
+}
