@@ -202,6 +202,19 @@ def rec_m_search():
         return render_template('rec_search_results.html', results=json_data["results"], term=form.movieName.data, users=users)
     return render_template('rec_search.html', form=form, users=users)
 
+@app.route('/search-movie-2-4-recc', methods=['GET', 'POST'])
+@login_required
+def rec_m_search_2():
+    users = User.query.order_by(User.username.desc()).all()
+    form = MovieSearch()
+    if form.validate_on_submit():
+        user_search = urllib.parse.quote(form.movieName.data)
+        complete_url = search_url + user_search + "&page=1"
+        conn = urllib.request.urlopen(complete_url)
+        json_data = json.loads(conn.read())
+        return render_template('rec_search_results_2.html', results=json_data["results"], term=form.movieName.data, users=users)
+    return render_template('rec_search2.html', form=form, users=users)
+
 @app.route('/recommendation-1', methods=['GET', 'POST'])
 @login_required
 def rec_options_1():
@@ -212,11 +225,7 @@ def rec_options_1():
     rec_url = info_url + movieid + "/recommendations?api_key=" + api_key + "&page=1"
     conn = urllib.request.urlopen(rec_url)
     json_data = json.loads(conn.read())
-    # for m in json_data["results"][:4]
-    #     ext_url = info_url +m.id "/external_ids?api_key=" + api_key
-    #     ext_conn = urllib.request.urlopen(ext_url)
-    #     ext_data = json.loads(ext_conn.read())
-    return render_template('user_1_reccs.html', results=json_data["results"][:4], users=users)
+    return render_template('user_1_reccs.html', results=json_data["results"][:3], users=users)
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 @login_required
@@ -250,3 +259,16 @@ def one_mov_rec():
     conn = urllib.request.urlopen(log_url)
     json_data = json.loads(conn.read())
     return render_template('rec_choice_1.html', result=json_data, users=users)
+
+@app.route('/confirm-reccomendation', methods=['GET', 'POST'])
+@login_required
+def two_mov_rec():
+    users = User.query.order_by(User.username.desc()).all()
+    movieid = request.args['movieid']
+    mname = request.args['mname']
+    myear = request.args['myear']
+    mposter = request.args['mposter']
+    log_url = info_url + movieid + "?api_key=" + api_key
+    conn = urllib.request.urlopen(log_url)
+    json_data = json.loads(conn.read())
+    return render_template('rec_choice_2.html', result=json_data, users=users)

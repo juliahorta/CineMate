@@ -640,6 +640,7 @@ ul {
 .recc-movie-card{
   width: 250px;
   height: auto;
+  justify-content: space-evenly;
   
 }
 

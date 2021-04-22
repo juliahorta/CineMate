@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Search for 2nd Movie</h1>
+<div class="search-bar">
+    <form class="search-form" action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.movieName() }}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</div>
+
+{% endblock %}
