@@ -345,71 +345,71 @@ def rec_options_3():
 
     return render_template('user_3_reccs.html', results=json_data_common, seperate=json_data_total, users=users)
 
-# @app.route('/recommendation-4', methods=['GET', 'POST'])
-# @login_required
-# def rec_options_4():
-#     users = User.query.order_by(User.username.desc()).all()
-#     movie1id = request.args['movie1id']
-#     movie2id = request.args['movie2id']
-#     movie3id = request.args['movie3id']
-#     movie4id = request.args['movie4id']
+@app.route('/recommendation-4', methods=['GET', 'POST'])
+@login_required
+def rec_options_4():
+    users = User.query.order_by(User.username.desc()).all()
+    movie1id = request.args['movie1id']
+    movie2id = request.args['movie2id']
+    movie3id = request.args['movie3id']
+    movie4id = request.args['movie4id']
 
-#     log_url1 = info_url + movie1id + "?api_key=" + api_key
-#     conn1 = urllib.request.urlopen(log_url1)
-#     mov_1_data = json.loads(conn1.read())
+    log_url1 = info_url + movie1id + "?api_key=" + api_key
+    conn1 = urllib.request.urlopen(log_url1)
+    mov_1_data = json.loads(conn1.read())
 
-#     log_url2 = info_url + movie2id + "?api_key=" + api_key
-#     conn2 = urllib.request.urlopen(log_url2)
-#     mov_2_data = json.loads(conn2.read())
+    log_url2 = info_url + movie2id + "?api_key=" + api_key
+    conn2 = urllib.request.urlopen(log_url2)
+    mov_2_data = json.loads(conn2.read())
 
-#     log_url3 = info_url + movie3id + "?api_key=" + api_key
-#     conn3 = urllib.request.urlopen(log_url3)
-#     mov_3_data = json.loads(conn3.read())
+    log_url3 = info_url + movie3id + "?api_key=" + api_key
+    conn3 = urllib.request.urlopen(log_url3)
+    mov_3_data = json.loads(conn3.read())
 
-#     log_url4 = info_url + movie4id + "?api_key=" + api_key
-#     conn4 = urllib.request.urlopen(log_url4)
-#     mov_4_data = json.loads(conn4.read())
+    log_url4 = info_url + movie4id + "?api_key=" + api_key
+    conn4 = urllib.request.urlopen(log_url4)
+    mov_4_data = json.loads(conn4.read())
     
-#     rec_url1 = info_url + movie1id + "/recommendations?api_key=" + api_key + "&page=1"
-#     conn1 = urllib.request.urlopen(rec_url1)
-#     json_data1 = json.loads(conn1.read())
-#     movies_for_1 = json_data1["results"]
+    rec_url1 = info_url + movie1id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn1 = urllib.request.urlopen(rec_url1)
+    json_data1 = json.loads(conn1.read())
+    movies_for_1 = json_data1["results"]
 
-#     rec_url2 = info_url + movie2id + "/recommendations?api_key=" + api_key + "&page=1"
-#     conn2 = urllib.request.urlopen(rec_url2)
-#     json_data2 = json.loads(conn2.read())
-#     movies_for_2 = json_data2["results"]
+    rec_url2 = info_url + movie2id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn2 = urllib.request.urlopen(rec_url2)
+    json_data2 = json.loads(conn2.read())
+    movies_for_2 = json_data2["results"]
 
-#     rec_url3 = info_url + movie3id + "/recommendations?api_key=" + api_key + "&page=1"
-#     conn3 = urllib.request.urlopen(rec_url3)
-#     json_data3 = json.loads(conn3.read())
-#     movies_for_3 = json_data3["results"]
+    rec_url3 = info_url + movie3id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn3 = urllib.request.urlopen(rec_url3)
+    json_data3 = json.loads(conn3.read())
+    movies_for_3 = json_data3["results"]
 
-#     rec_url4 = info_url + movie4id + "/recommendations?api_key=" + api_key + "&page=1"
-#     conn4 = urllib.request.urlopen(rec_url4)
-#     json_data4 = json.loads(conn4.read())
-#     movies_for_4 = json_data4["results"]
+    rec_url4 = info_url + movie4id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn4 = urllib.request.urlopen(rec_url4)
+    json_data4 = json.loads(conn4.read())
+    movies_for_4 = json_data4["results"]
 
-#     json_data_total = []
-#     json_data_common = [d for d in movies_for_1 if d in movies_for_2 or d in movies_for_3 or d in movies_for_4]
+    json_data_total = []
+    json_data_common = [d for d in movies_for_1 if d in movies_for_2 or d in movies_for_3 or d in movies_for_4]
     
-#     for i in range(len(json_data_common)-1):
-#         if json_data_common[i]['id'] == mov_1_data.get('id'):
-#             del json_data_common[i]
-#         elif json_data_common[i]['id'] == mov_2_data.get('id'):
-#             del json_data_common[i]
-#         elif json_data_common[i]['id'] == mov_3_data.get('id'):
-#             del json_data_common[i]
-#         elif json_data_common[i]['id'] == mov_4_data.get('id'):
-#             del json_data_common[i]
+    for i in range(len(json_data_common)-1):
+        if json_data_common[i]['id'] == mov_1_data.get('id'):
+            del json_data_common[i]
+        elif json_data_common[i]['id'] == mov_2_data.get('id'):
+            del json_data_common[i]
+        elif json_data_common[i]['id'] == mov_3_data.get('id'):
+            del json_data_common[i]
+        elif json_data_common[i]['id'] == mov_4_data.get('id'):
+            del json_data_common[i]
 
-#     if not json_data_common:
-#         json_data_total = json_data1["results"][:3] + json_data2["results"][:3] + json_data3["results"][:3] + json_data4["results"][:3]
+    if not json_data_common:
+        json_data_total = json_data1["results"][:3] + json_data2["results"][:3] + json_data3["results"][:3] + json_data4["results"][:3]
         
-#     if len(json_data_common) > 3:
-#         json_data_common = json_data_common[:3]
+    if len(json_data_common) > 3:
+        json_data_common = json_data_common[:3]
 
-#     return render_template('user_4_reccs.html', results=json_data_common, seperate=json_data_total, users=users)
+    return render_template('user_4_reccs.html', results=json_data_common, seperate=json_data_total, users=users)
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 @login_required
