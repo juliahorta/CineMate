@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="margin-bottom: 30px;"> You might like these films!</h1>
+<div class="recc-list-container">
+    {% for movie in results %}
+    {% if movie.poster_path %}
+    <div class="recc-movie-card">
+        <img class="movie-rec-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="">
+        {% if movie.release_date %}
+                <h3>{{movie.title}} ({{movie.release_date[:4]}})</h3>
+                {% else %}
+                <h3>{{movie.title}}</h3>
+                {% endif %}
+        <p><b>Average Rating:</b> {{movie.vote_average}}/10 Stars </p>
+        <p class="rec-overview"> {{movie.overview}} </p>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <h2> {{stat_num}} </h2>
+</div>
+{% endblock %}

@@ -9,7 +9,9 @@
         <img class="rec-poster" src="https://image.tmdb.org/t/p/w500/{{result2.poster_path}}" alt="">
         <h2 class="rec-name"> {{ result2.title }} ({{ result2.release_date[:4] }}) </h2>
 
-        
+        <a class="get-rec-b"
+            href="{{ url_for('rec_options_2', movie1id=result1.id, movie2id=result2.id) }}">
+            Get Recommendation</a>
     </div>
 </div>
 

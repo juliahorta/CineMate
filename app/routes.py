@@ -228,6 +228,30 @@ def rec_options_1():
     json_data = json.loads(conn.read())
     return render_template('user_1_reccs.html', results=json_data["results"][:3], users=users)
 
+@app.route('/recommendation-2', methods=['GET', 'POST'])
+@login_required
+def rec_options_2():
+    users = User.query.order_by(User.username.desc()).all()
+    movie1id = request.args['movie1id']
+    movie2id = request.args['movie2id']
+
+    rec_url1 = info_url + movie1id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn1 = urllib.request.urlopen(rec_url1)
+    json_data1 = json.loads(conn1.read())
+    movies_for_1 = json_data1["results"]
+
+    rec_url2 = info_url + movie2id + "/recommendations?api_key=" + api_key + "&page=1"
+    conn2 = urllib.request.urlopen(rec_url2)
+    json_data2 = json.loads(conn2.read())
+    movies_for_2 = json_data2["results"]
+
+    json_data_total = {x:movies_for_1[x] for x in movies_for_1 
+                              if x in movies_for_2}
+    if not json_data_total:
+        json_data_total = {**movies_for_1[:3], **movies_for_2[:3]} 
+
+    return render_template('user_2_reccs.html', results=json_data_total, users=users)
+
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 @login_required
