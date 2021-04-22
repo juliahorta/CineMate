@@ -4,15 +4,12 @@
 <div class="res-1-cont">
     <h1> You chose:</h1>
     <div class="result-1-recc">
-        <img class="rec-poster" src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="">
-        <h2 class="rec-name"> {{ result.title }} ({{ result.release_date[:4] }}) </h2>
+        <img class="rec-poster" src="https://image.tmdb.org/t/p/w500/{{result1.poster_path}}" alt="">
+        <h2 class="rec-name"> {{ result1.title }} ({{ result1.release_date[:4] }}) </h2>
+        <img class="rec-poster" src="https://image.tmdb.org/t/p/w500/{{result2.poster_path}}" alt="">
+        <h2 class="rec-name"> {{ result2.title }} ({{ result2.release_date[:4] }}) </h2>
 
-        <a class="get-rec-b"
-            href="{{ url_for('rec_options_1', mname=result.title, myear=result.release_date[:4], movieid=result.id) }}">
-            Get Recommendation</a>
-            <a class="get-rec-b"
-            href="{{ url_for('rec_m_search_2', mname=result.title, myear=result.release_date[:4], movieid=result.id) }}">
-            Add Another Movie</a>
+        
     </div>
 </div>
 

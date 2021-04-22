@@ -45,7 +45,7 @@ def home():
 def login():
     if current_user.is_authenticated:
         users = User.query.order_by(User.username.desc()).all()
-        return redirect(url_for('home'), users=users)
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -68,7 +68,7 @@ def logout():
 def register():
     if current_user.is_authenticated:
         users = User.query.order_by(User.username.desc()).all()
-        return redirect(url_for('home'), users=users)
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -206,13 +206,14 @@ def rec_m_search():
 @login_required
 def rec_m_search_2():
     users = User.query.order_by(User.username.desc()).all()
+    movie1id = request.args['movie1id']
     form = MovieSearch()
     if form.validate_on_submit():
         user_search = urllib.parse.quote(form.movieName.data)
         complete_url = search_url + user_search + "&page=1"
         conn = urllib.request.urlopen(complete_url)
         json_data = json.loads(conn.read())
-        return render_template('rec_search_results_2.html', results=json_data["results"], term=form.movieName.data, users=users)
+        return render_template('rec_search_results_2.html', results=json_data["results"], term=form.movieName.data, users=users, movie1id=movie1id)
     return render_template('rec_search2.html', form=form, users=users)
 
 @app.route('/recommendation-1', methods=['GET', 'POST'])
@@ -226,6 +227,7 @@ def rec_options_1():
     conn = urllib.request.urlopen(rec_url)
     json_data = json.loads(conn.read())
     return render_template('user_1_reccs.html', results=json_data["results"][:3], users=users)
+
 
 @app.route('/log-movie', methods=['GET', 'POST'])
 @login_required
@@ -260,15 +262,18 @@ def one_mov_rec():
     json_data = json.loads(conn.read())
     return render_template('rec_choice_1.html', result=json_data, users=users)
 
-@app.route('/confirm-reccomendation', methods=['GET', 'POST'])
+@app.route('/confirm-reccomendation2', methods=['GET', 'POST'])
 @login_required
 def two_mov_rec():
     users = User.query.order_by(User.username.desc()).all()
-    movieid = request.args['movieid']
-    mname = request.args['mname']
-    myear = request.args['myear']
-    mposter = request.args['mposter']
-    log_url = info_url + movieid + "?api_key=" + api_key
+    movie1id = request.args['movie1id']
+    movie2id = request.args['movie2id']
+    
+    log_url = info_url + movie1id + "?api_key=" + api_key
     conn = urllib.request.urlopen(log_url)
-    json_data = json.loads(conn.read())
-    return render_template('rec_choice_2.html', result=json_data, users=users)
+    json_data_1 = json.loads(conn.read())
+
+    log_url2 = info_url + movie2id + "?api_key=" + api_key
+    conn2 = urllib.request.urlopen(log_url2)
+    json_data_2 = json.loads(conn2.read())
+    return render_template('rec_choice_2.html', result1=json_data_1, result2=json_data_2, users=users)
