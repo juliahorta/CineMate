@@ -264,6 +264,14 @@ def rec_options_2():
     movie1id = request.args['movie1id']
     movie2id = request.args['movie2id']
 
+    log_url1 = info_url + movie1id + "?api_key=" + api_key
+    conn1 = urllib.request.urlopen(log_url1)
+    mov_1_data = json.loads(conn1.read())
+
+    log_url2 = info_url + movie2id + "?api_key=" + api_key
+    conn2 = urllib.request.urlopen(log_url2)
+    mov_2_data = json.loads(conn2.read())
+
     rec_url1 = info_url + movie1id + "/recommendations?api_key=" + api_key + "&page=1"
     conn1 = urllib.request.urlopen(rec_url1)
     json_data1 = json.loads(conn1.read())
@@ -428,7 +436,7 @@ def log_movie():
             rewatch=form.movieRewatch.data, review=form.movieReview.data, logger=current_user)
         db.session.add(log_data)
         db.session.commit()
-        return redirect(url_for('home'), users=users)
+        return redirect(url_for('home'))
     return render_template('log_movie.html', form=form, result=json_data, users=users)
 
 @app.route('/confirm-reccomendation', methods=['GET', 'POST'])

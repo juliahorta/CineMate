@@ -903,3 +903,7 @@ div.result-3-recc {
 div.one-mov-card {
   margin-bottom: 2%;
 }
+
+textarea {
+  color: black;
+}
