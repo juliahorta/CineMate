@@ -11,9 +11,12 @@
         <img class="rec-poster" src="https://image.tmdb.org/t/p/w500/{{result3.poster_path}}" alt="">
         <h2 class="rec-name"> {{ result3.title }} ({{ result3.release_date[:4] }}) </h2>
 
-        <a class="get-rec-b" href="{{ url_for('rec_options_3', movie1id=result1.id, movie2id=result2.id, movie3id=result3.id) }}">
+        <a class="get-rec-b"
+            href="{{ url_for('rec_options_3', movie1id=result1.id, movie2id=result2.id, movie3id=result3.id) }}">
             Get Recommendation</a>
-        
+        <a class="get-rec-b" href="{{ url_for('rec_m_search_4', movie1id=result1.id, movie2id=result2.id, movie3id=result3.id) }}">
+            Add Another Movie</a>
+
     </div>
 </div>
 
