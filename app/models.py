@@ -78,8 +78,6 @@ class Diary(db.Model):
     review = db.Column(db.String(140))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def __repr__(self):
-        return '<{} -> Movie: {}, Released: {}, Rating: {}, Rewatch?: {}>'.format(self.date_watched,self.movie_name, self.release_date, self.user_rating, self.rewatch)
 
 class GenreRating(db.Model):
     id = db.Column(db.Integer, primary_key=True)

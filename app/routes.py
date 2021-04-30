@@ -127,7 +127,7 @@ def follow(username):
         current_user.follow(user)
         db.session.commit()
         # flash('You are following {}!'.format(username))
-        return redirect(url_for('user', username=username, users=users))
+        return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'), users=users)
 
@@ -147,7 +147,7 @@ def unfollow(username):
         current_user.unfollow(user)
         db.session.commit()
         flash('You are not following {}.'.format(username))
-        return redirect(url_for('user', username=username), users=users)
+        return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'), users=users)
  

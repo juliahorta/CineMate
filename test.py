@@ -47,39 +47,5 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(u1.followed.count(), 0)
         self.assertEqual(u2.followers.count(), 0)
 
-    # def test_follow_entries(self):
-    #     # create four users
-    #     u1 = User(username='john', email='john@example.com')
-    #     u2 = User(username='susan', email='susan@example.com')
-    #     u3 = User(username='mary', email='mary@example.com')
-    #     u4 = User(username='david', email='david@example.com')
-    #     db.session.add_all([u1, u2, u3, u4])
-
-    #     # create four entries
-    #     # now = datetime.utcnow()
-    #     e1 = Diary(movie_name="Percy Jackson", logger=u1)
-    #     e2 = Diary(movie_name="HP PS", logger=u2)
-    #     e3 = Diary(movie_name="HP POA", logger=u3)
-    #     e4 = Diary(movie_name="HP DHP1", logger=u4)
-    #     db.session.add_all([e1, e2, e3, e4])
-    #     db.session.commit()
-
-    #     # setup the followers
-    #     u1.follow(u2)  # john follows susan
-    #     u1.follow(u4)  # john follows david
-    #     u2.follow(u3)  # susan follows mary
-    #     u3.follow(u4)  # mary follows david
-    #     db.session.commit()
-
-    #     # check the followed entries of each user
-    #     f1 = u1.followed_entries().all()
-    #     f2 = u2.followed_entries().all()
-    #     f3 = u3.followed_entries().all()
-    #     f4 = u4.followed_entries().all()
-    #     self.assertEqual(f1, [e2, e4, e1])
-    #     self.assertEqual(f2, [e2, e3])
-    #     self.assertEqual(f3, [e3, e4])
-    #     self.assertEqual(f4, [e4])
-
 if __name__ == '__main__':
     unittest.main(verbosity=2)
