@@ -3,6 +3,8 @@ import unittest
 from app import app, db
 from app.models import User, Diary
 
+# unit tests for user follow/unfollow fucntions
+
 class UserModelCase(unittest.TestCase):
     def setUp(self):
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'

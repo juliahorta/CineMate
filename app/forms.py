@@ -4,14 +4,14 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Le
 from wtforms.fields.html5 import DateField
 from app.models import User
 
-
+# form used to handle users logging in
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()], render_kw={"placeholder": "Username"})
     password = PasswordField('Password', validators=[DataRequired()], render_kw={"placeholder": "Password"})
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
-
+# form that handles users registering accounts
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()], render_kw={"placeholder": "Username"})
     email = StringField('Email', validators=[DataRequired(), Email()], render_kw={"placeholder": "Email"})
@@ -30,6 +30,7 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
 
+# form that handles users editing their profiles
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
@@ -48,28 +49,31 @@ class EditProfileForm(FlaskForm):
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 
-class RateGenres(FlaskForm):
-    action = RadioField('Action', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    adventure = RadioField('Adventure', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    animation = RadioField('Animation', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    comedy = RadioField('Comedy', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    crime = RadioField('Crime', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    documentary = RadioField('Documentary', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    drama = RadioField('Drama', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    family = RadioField('Family', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    fantasy = RadioField('Fantasy', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    history = RadioField('History', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    horror = RadioField('Horror', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    music = RadioField('Music', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    mystery = RadioField('Mystery', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    romance = RadioField('Romance', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    scifi = RadioField('Sci-Fi', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    thriller = RadioField('Thriller', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    war = RadioField('War', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
-    western = RadioField('Western', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
 
-    submit = SubmitField('Done')
+# rate genre form not used
+# class RateGenres(FlaskForm):
+#     action = RadioField('Action', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     adventure = RadioField('Adventure', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     animation = RadioField('Animation', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     comedy = RadioField('Comedy', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     crime = RadioField('Crime', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     documentary = RadioField('Documentary', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     drama = RadioField('Drama', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     family = RadioField('Family', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     fantasy = RadioField('Fantasy', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     history = RadioField('History', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     horror = RadioField('Horror', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     music = RadioField('Music', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     mystery = RadioField('Mystery', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     romance = RadioField('Romance', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     scifi = RadioField('Sci-Fi', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     thriller = RadioField('Thriller', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     war = RadioField('War', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
+#     western = RadioField('Western', choices=[(1,'1 Star'),(2,'2 Stars'),(3,'3 Stars'),(4,'4 Stars'),(5,'5 Stars')])
 
+#     submit = SubmitField('Done')
+
+# form that handles users logging films
 class LogMovie(FlaskForm):
     dateWatched = DateField('Date Watched', format='%Y-%m-%d', validators=[DataRequired()])
     movieReview = TextAreaField('Review', validators=[Length(min=0, max=140)], render_kw={"placeholder": "Write a review..."})
@@ -77,6 +81,7 @@ class LogMovie(FlaskForm):
     movieRewatch = BooleanField('Rewatch?')
     submit = SubmitField('Save')
 
+# form responsible for movie search
 class MovieSearch(FlaskForm):
     movieName = StringField('Name of film', validators=[DataRequired()], render_kw={"placeholder": "Name of film"})
     submit = SubmitField('Search')

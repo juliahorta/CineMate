@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+<!-- search results when user has chosen to select a 4th film to base recommendations on -->
 {% block content %}
 <h1> results for "{{term}}"</h1>
 <!-- <h2 class="res-sub">click movie name to base recommendations on it</h2> -->
@@ -8,12 +8,19 @@
     {% if movie.poster_path %}
     <div class="movie-card">
         {% if movie.release_date %}
-        <a href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}"><img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
-        <h4><a class="log-link" href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h4>
-        {% else %}
-        <a href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}"><img
+        <a
+            href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}"><img
                 src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
-        <h4><a class="log-link" href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}"> {{movie.title}}</a></h4>
+        <h4><a class="log-link"
+                href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}">
+                {{movie.title}} ({{movie.release_date[:4]}}) </a></h4>
+        {% else %}
+        <a
+            href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}"><img
+                src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
+        <h4><a class="log-link"
+                href="{{ url_for('four_mov_rec', movie1id=movie1id, movie2id=movie2id, movie3id=movie3id, movie4id=movie.id) }}">
+                {{movie.title}}</a></h4>
         {% endif %}
     </div>
     {% endif %}

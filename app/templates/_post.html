@@ -1,15 +1,17 @@
 <img class="post-poster" src="https://image.tmdb.org/t/p/w500/{{post.poster_path}}" alt="">
 <div class="post-text">
-    <h2 class="p-m-name"> {{ post.movie_name }} ({{ post.release_date[:4] }}) </h2>
-    {% if post.rewatch %}
-    <p class="p-re-text"> Rewatched by <b>{{ post.logger.username }}</b> on <u>{{ post.date_watched[8:10] }}/{{
-            post.date_watched[5:7] }}/{{ post.date_watched[:4] }}</u></p>
-    {% else %}
-    <p class="p-re-text"> Watched by <b>{{ post.logger.username }}</b> on <u>{{ post.date_watched[8:10] }}/{{
-            post.date_watched[5:7] }}/{{ post.date_watched[:4] }}</u></p>
-    {% endif %}
-    <p class="p-u-rate"> Rating: {{ post.user_rating }} Stars</p>
-    {% if post.review %}
-    <p class="p-rev"> {{ post.review }} </p>
-    {% endif %}
+        <h2 class="p-m-name"> {{ post.movie_name }} ({{ post.release_date[:4] }}) </h2>
+        {% if post.rewatch %}
+        <p class="p-re-text"> Rewatched by <b>{{ post.logger.username }}</b> on <u>{{ post.date_watched[8:10] }}/{{
+                        post.date_watched[5:7] }}/{{ post.date_watched[:4] }}</u></p>
+        {% else %}
+        <p class="p-re-text"> Watched by <b>{{ post.logger.username }}</b> on <u>{{ post.date_watched[8:10] }}/{{
+                        post.date_watched[5:7] }}/{{ post.date_watched[:4] }}</u></p>
+        {% endif %}
+        <p class="p-u-rate"> Rating: {{ post.user_rating }} Stars</p>
+        {% if post.review %}
+        <p class="p-rev"> {{ post.review }} </p>
+        {% endif %}
 </div>
+
+<!-- user diary entry layout -->

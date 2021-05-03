@@ -1,19 +1,23 @@
 {% extends "base.html" %}
-
+<!-- currently trending films page -->
 {% block content %}
-    <h1> Currently Trending Movies</h1>
-        <div class="movie-list-container">
-            {% for movie in results %}
-            <div class="movie-card">
-                {% if movie.release_date %}
-                <a class="pop-poster" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"><img class="pop-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
-                <h5><b>Average Rating:</b> {{movie.vote_average}}/10 Stars </h5>
-                <!-- <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3> -->
-                {% else %}
-                <a class="pop-poster" href="{{ url_for('log_movie', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"><img class="pop-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
-                <!-- <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}}</a></h3> -->
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>   
+<h1> Currently Trending Movies</h1>
+<div class="movie-list-container">
+    {% for movie in results %}
+    <div class="movie-card">
+        {% if movie.release_date %}
+        <a class="pop-poster"
+            href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"><img
+                class="pop-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
+        <h5><b>Average Rating:</b> {{movie.vote_average}}/10 Stars </h5>
+        <!-- <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, myear=movie.release_date[:4], movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}} ({{movie.release_date[:4]}}) </a></h3> -->
+        {% else %}
+        <a class="pop-poster"
+            href="{{ url_for('log_movie', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"><img
+                class="pop-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt=""></a>
+        <!-- <h3><a class="log-link" href="{{ url_for('log_movie', mname=movie.title, movieid=movie.id, mposter=movie.poster_path) }}"> {{movie.title}}</a></h3> -->
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

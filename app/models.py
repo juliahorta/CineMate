@@ -4,11 +4,13 @@ from datetime import datetime
 from flask_login import UserMixin
 from app import db, login
 
+# followers association table
 followers = db.Table('followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
+# user database model
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(23), index=True, unique=True)
@@ -66,6 +68,7 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
+# user diary entry database model
 class Diary(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_watched = db.Column(db.String(140)) 
@@ -78,7 +81,7 @@ class Diary(db.Model):
     review = db.Column(db.String(140))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-
+# database model for user genre ratings, not used
 class GenreRating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     action = db.Column(db.Integer)
